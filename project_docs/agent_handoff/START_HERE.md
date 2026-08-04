@@ -9,7 +9,7 @@
 - 分支：[分支名]
 - 当前 HEAD：[commit hash]（描述）
 - 活跃基线：`project_docs/baselines/[基线名].md`
-- 主稿件：`report/zh/manuscript/[主稿件].tex`
+- 主稿件：`paper/zh/manuscript/[主稿件].tex`
 - 远端：无 / [url]
 
 **版本定义**：代码/论文版本由具名基线决定；工作树名、运行目录名不定义版本。

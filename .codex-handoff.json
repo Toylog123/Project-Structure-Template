@@ -3,8 +3,8 @@
   "repo_root": "[项目根绝对路径]",
   "git_policy": "independent history on main",
   "current_baseline": "project_docs/baselines/[首个基线].md",
-  "primary_manuscript": "report/zh/manuscript/[主稿件].tex",
-  "primary_pdf": "report/zh/build/[主稿件].pdf",
+  "primary_manuscript": "paper/zh/manuscript/[主稿件].tex",
+  "primary_pdf": "paper/zh/build/[主稿件].pdf",
   "evidence_root": "project_docs/evidence/",
   "read_order": [
     "AGENTS.md",
@@ -14,6 +14,6 @@
     "project_docs/agent_handoff/TASK_BOARD.md",
     "project_docs/agent_handoff/CURRENT_RUN_HANDOFF.md",
     "project_docs/baselines/",
-    "report/zh/manuscript/"
+    "paper/zh/manuscript/"
   ]
 }

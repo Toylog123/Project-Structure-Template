@@ -10,10 +10,10 @@
 生成命令示例：
 
 ```powershell
-python report/zh/figures/scripts/generate_plots.py
+python paper/zh/figures/scripts/generate_plots.py
 ```
 
-输出到 `report/zh/figures/final/`。
+输出到 `paper/zh/figures/final/`。
 
 约定：
 

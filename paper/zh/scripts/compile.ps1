@@ -3,14 +3,14 @@
 # 用法：
 #   powershell -NoProfile -ExecutionPolicy Bypass -File compile.ps1
 #   powershell ... -File compile.ps1 -Name <论文名>      # 指定稿件名，默认 template
-# 输出：report/zh/build/<论文名>.pdf
+# 输出：paper/zh/build/<论文名>.pdf
 # 依赖：xelatex（TeX Live 或 MiKTeX）
 # =============================================================================
 param([string]$Name = "template")
 
 $ErrorActionPreference = "Stop"
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path   # report/zh/scripts
-$paperRoot = Join-Path $scriptDir ".."                          # report/zh
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path   # paper/zh/scripts
+$paperRoot = Join-Path $scriptDir ".."                          # paper/zh
 $manuscript = Join-Path $paperRoot "manuscript"
 $build = Join-Path $paperRoot "build"
 

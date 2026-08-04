@@ -3,7 +3,7 @@
 > 基线定义当前版本：绑定论文、源码与证据。工作树名、运行目录名不定义版本。
 
 - 创建日期：YYYY-MM-DD
-- 论文：`report/zh/manuscript/[主稿件].tex`
+- 论文：`paper/zh/manuscript/[主稿件].tex`
 - 源码基线：[commit / manifest]
 - 证据：`project_docs/evidence/[证据根]/`
 - 状态：active / superseded / archived

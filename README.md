@@ -48,14 +48,14 @@
 2. 建立环境：按 `scripts/` 中的构建/验证脚本初始化。
 3. 开发：在 `src/` 下按模块建目录，遵守 `src/DESIGN.md`。
 4. 实验：在 `experiments/` 定义并编排，结果证据归 `project_docs/evidence/`。
-5. 论文：默认写中文 `report/zh/manuscript/`；仅投稿英文期刊/会议时才转换出英文版 `report/en/manuscript/`。
+5. 论文：默认写中文 `paper/zh/manuscript/`；仅投稿英文期刊/会议时才转换出英文版 `paper/en/manuscript/`。
 
 ## 目录角色
 
 | 目录 | 角色 |
 |------|------|
 | `src/` | 主源码，按技术模块分子目录；`DESIGN.md` 记录源码层设计 |
-| `report/` | 论文 / 报告 / 成果；`zh/` 默认中文主版本，`en/` 英文转换版本 |
+| `paper/` | 论文 / 报告 / 成果；`zh/` 默认中文主版本，`en/` 英文转换版本 |
 | `experiments/` | 实验定义与编排（**非结果存档**，结果证据归 `project_docs/evidence/`） |
 | `data/` | 数据治理：`manifests/` `raw/` `derived/` `schemas/` |
 | `project/` | 构建工程与运行配置；生成的工程文件 git-ignored，仅保留 `scripts/` |

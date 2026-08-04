@@ -60,18 +60,18 @@ Thumbs.db
 desktop.ini
 
 # ===== LaTeX 中间文件 / 构建产物 =====
-report/*/build/*
-!report/*/build/.gitkeep
-report/*/manuscript/*.aux
-report/*/manuscript/*.bbl
-report/*/manuscript/*.blg
-report/*/manuscript/*.fdb_latexmk
-report/*/manuscript/*.fls
-report/*/manuscript/*.xdv
-report/*/manuscript/*.synctex.gz
-report/*/manuscript/*.toc
-report/*/manuscript/*.lof
-report/*/manuscript/*.lot
+paper/*/build/*
+!paper/*/build/.gitkeep
+paper/*/manuscript/*.aux
+paper/*/manuscript/*.bbl
+paper/*/manuscript/*.blg
+paper/*/manuscript/*.fdb_latexmk
+paper/*/manuscript/*.fls
+paper/*/manuscript/*.xdv
+paper/*/manuscript/*.synctex.gz
+paper/*/manuscript/*.toc
+paper/*/manuscript/*.lof
+paper/*/manuscript/*.lot
 *.pdf
 
 # ===== 大体积 / 本地数据 =====

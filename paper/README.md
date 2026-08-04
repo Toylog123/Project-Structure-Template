@@ -1,6 +1,6 @@
-# 报告 / 论文
+# 论文（Paper）
 
-本目录保存论文、报告与成果，采用 `zh` / `en` 双版本同构框架（目录结构对齐，便于中英互转）。
+本目录保存论文及必要的研究成果材料，采用 `zh` / `en` 双版本同构框架（目录结构对齐，便于中英互转）。
 
 ## 中英双版本约定
 
@@ -12,7 +12,7 @@
 ## 目录结构
 
 ```text
-report/
+paper/
 |- zh/
 |  |- manuscript/        # 中文主稿件（.tex，单文件）
 |  |- responses/         # 审稿回复
@@ -35,5 +35,5 @@ report/
 
 1. 修改已报告数字前，先在证据根定位来源，同一次编辑中更新稿件、回复与证据交叉表。
 2. 生成物（build/、中间文件、PDF）一律 git-ignored，不提交。
-3. 编译：`report/zh/scripts/compile.bat`（输出到 `report/zh/build/`）。
+3. 编译：`paper/zh/scripts/compile.bat`（输出到 `paper/zh/build/`）。
 4. 定量折线图由 `figures/scripts/` 脚本生成以保证可复现；系统/结构图用 draw.io 存 `figures/sources/`，定稿导出 `figures/final/`。
