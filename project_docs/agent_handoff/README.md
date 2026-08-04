@@ -11,6 +11,7 @@
 7. `NEXT_AGENT_PROMPT.md` — 给下一位 agent 的提示词
 8. `../baselines/` — 具名基线（先读 `BASELINE_INDEX.csv`）
 9. `../evidence/` — 按需查证证据
+10. `../../docs/environment.md` — 环境与依赖清单（复现环境）
 
 ## 规则
 
