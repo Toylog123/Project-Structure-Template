@@ -1,0 +1,97 @@
+% =============================================================================
+% 中文论文主稿件模板（IEEE 期刊格式）
+%
+% 用法：
+%   1. 复制本文件为 <论文名>.tex（保持单文件，不拆分 sections）
+%   2. 在 report/zh/manuscript/ 下编辑
+%   3. 编译：report/zh/scripts/compile.bat（xelatex，输出到 report/zh/build/）
+%
+% 参考：D:\BaiduSyncdisk\zh\manuscript\hetero_classifier_paper.tex
+% =============================================================================
+\documentclass[journal]{IEEEtran}
+
+% -----------------------------------------------------------------------------
+% 宏包引用
+% -----------------------------------------------------------------------------
+\usepackage{ctex}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[nocompress]{cite}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\usepackage{unicode-math}
+
+\setmainfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{Latin Modern Mono}
+\setmathfont{TeX Gyre Termes Math}
+\graphicspath{{../figures/final/}}
+\setlength{\emergencystretch}{2em}
+\Urlmuskip=0mu plus 1mu\relax
+
+% -----------------------------------------------------------------------------
+% 文档信息
+% -----------------------------------------------------------------------------
+\title{[中文标题]}
+\author{[作者]%
+\thanks{[作者，[单位]，[国家]。电子邮箱：[邮箱]。}}
+
+\begin{document}
+\maketitle
+
+% -----------------------------------------------------------------------------
+% 摘要
+% -----------------------------------------------------------------------------
+\begin{abstract}
+[中文摘要：问题、方法、主要结果与结论。]
+\end{abstract}
+
+\begin{IEEEkeywords}
+[关键词一]，[关键词二]，[关键词三]
+\end{IEEEkeywords}
+
+% -----------------------------------------------------------------------------
+% 正文
+% -----------------------------------------------------------------------------
+\section{引言}
+[研究背景、动机、贡献与结构安排。]
+
+\section{系统设计}
+[系统架构、核心模块、关键设计决策。图表引用：图~\ref{fig:architecture}、表~\ref{tab:params}。]
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig1_architecture}
+\caption{系统架构图}
+\label{fig:architecture}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{关键参数}
+\label{tab:params}
+\begin{tabular}{ll}
+\toprule
+参数 & 值 \\
+\midrule
+示例 & 占位 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{实验}
+[实验设置、结果与分析。每条数字必须能追溯到 project_docs/evidence/ 中的证据包。]
+
+\section{结论}
+[总结与展望。]
+
+% -----------------------------------------------------------------------------
+% 参考文献
+% -----------------------------------------------------------------------------
+\begin{thebibliography}{1}
+\bibitem{ref1} [第一作者], ``[文献标题],'' [期刊/会议], vol.~x, no.~x, pp.~xx--xx, [年份].
+\end{thebibliography}
+
+\end{document}

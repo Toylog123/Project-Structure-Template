@@ -1,0 +1,84 @@
+# ===== 构建产物 =====
+# 项目生成的工程目录（保留 project/scripts/ 与 project/README.md）
+project/*/
+!project/scripts/
+!project/scripts/**
+!project/README.md
+build/
+dist/
+out/
+bin/
+*.o
+*.a
+*.so
+*.exe
+*.dll
+*.lib
+*.class
+*.jar
+
+# ===== 仿真 / 运行输出 =====
+*.log
+*.out
+*.vcd
+*.lxt
+*.fst
+*.ghw
+*.vvp
+*.wdb
+*.wdf
+
+# ===== 临时文件 =====
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*~
+tmp/
+scratch/
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*.suo
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+.Python
+venv/
+.venv/
+
+# ===== 系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== LaTeX 中间文件 / 构建产物 =====
+report/*/build/
+report/*/manuscript/*.aux
+report/*/manuscript/*.bbl
+report/*/manuscript/*.blg
+report/*/manuscript/*.fdb_latexmk
+report/*/manuscript/*.fls
+report/*/manuscript/*.xdv
+report/*/manuscript/*.synctex.gz
+report/*/manuscript/*.toc
+report/*/manuscript/*.lof
+report/*/manuscript/*.lot
+*.pdf
+
+# ===== 大体积 / 本地数据 =====
+data/raw/
+data/derived/
+
+# ===== 交接 / 同步噪音 =====
+**/*_冲突文件_*
+*.baiduyun.uploading.cfg
+
+# ===== 不可变证据例外（如需保留证据中的原始 log，改白名单） =====
+# project_docs/evidence/**/raw/*.log
