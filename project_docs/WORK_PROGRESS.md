@@ -7,7 +7,7 @@
 ## 2026-08-04 建立通用工程模板（Project-Structure-Template）
 
 - 做了什么：从零搭建通用工程项目模板：src / paper / experiments / data / project_docs / scripts / tests / skills 目录；交接体系（agent_handoff）、进度记录（WORK_PROGRESS / CURRENT_STATUS）、周报模板、版本管理（versioning.md）、中英双版本论文框架（paper/zh + paper/en）。
-- 关键结果：模板已推送 GitHub（Toylog123/Project-Structure-Template）；补全全部空目录 `.gitkeep` 与示例文件；配置通用记录检查脚本 `scripts/check_record.sh`；新增项目立项评估模板（含创新性评估）与四份工程/科研文档（环境清单、术语表、评审轮次模板、论文-证据交叉表）。
+- 关键结果：模板已推送 GitHub（Toylog123/Project-Structure-Template）；补全全部空目录 `.gitkeep` 与示例文件；新增项目立项评估模板与四份工程/科研文档（环境、术语、评审、交叉表）；落地框架工具（健康检查 `check_project.sh`、基线 manifest `make_manifest.sh`、Makefile、CI）；为全部内容目录补"放什么 + 形式"说明与示例。
 - 证据 / 提交：`124a682`、`de54e4d`、`6819071`
 - 下一步：实际项目复制模板后替换 `[占位]` 内容。
 
