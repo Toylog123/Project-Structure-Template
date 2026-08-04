@@ -32,6 +32,14 @@
 4. **路径自洽**：活动文件使用仓库相对路径；不可变证据/归档保留历史绝对路径作溯源。
 5. **无隐性状态**：不依赖未提交工作树、临时文件或内存状态作为「当前事实」。
 
+# 记录习惯（每轮必须，适用于任何智能体 / 工具）
+
+记录不依赖某个特定工具，任何智能体 / 人接手都必须遵守：
+
+1. **每轮结束前**：在 `project_docs/WORK_PROGRESS.md` **顶部**插入本轮条目（日期格式 `YYYY-MM-DD`），并同步更新 `agent_handoff/status_logs/CURRENT_STATUS.md`、`agent_handoff/TASK_BOARD.md`、`agent_handoff/CURRENT_RUN_HANDOFF.md`。
+2. **自检**：结束前运行 `bash scripts/check_record.sh`，确认今日已记录。该脚本是通用工具，任何智能体 / 工具 / 人均可调用。
+3. **工具附加提醒**：若使用 Claude Code，`.claude/hooks/` 的 Stop hook 会自动执行同一检查（仅 CC 生效）；其他工具按第 2 条手动运行。
+
 # 项目级技能入口
 
 项目级本地技能存放在根目录 `skills/`（详见 `skills/README.md`）。
@@ -40,10 +48,13 @@
 2. 按需加载 `skills/<技能名>/`
 3. 若 `skills/` 不可用，回退 `project_docs/agent_handoff/skill_snapshots/`
 
-# 仓库基线规则
+# 仓库基线规则（多版本管理）
 
 - 权威工作区：`[项目根]`（复制模板后填写）。
-- 具名基线在 `project_docs/baselines/`，绑定论文、源码与证据；工作树名不定义版本。
+- 具名基线在 `project_docs/baselines/`，绑定**论文、源码、测试与证据**；工作树名、运行目录名不定义版本。
+- 代码 / 测试的所有版本由 **git 承载**（commit 即版本，tag 即命名里程碑），**不复制目录**手工维护多版本。
+- 冻结基线时用 manifest 锁定「源码 + 测试 + 证据」的 SHA-256 清单。
+- 详见 `project_docs/versioning.md`。
 - 物理工作树放在同步仓库之外，注册于 `project_docs/worktrees/WORKTREE_REGISTRY.csv`。
 
 # 目录卫生与归纳（防冗余）
