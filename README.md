@@ -44,11 +44,12 @@
 
 （复制模板后按需填写）
 
-1. 登记项目：读 `project_docs/agent_handoff/START_HERE.md`，建立首个基线到 `project_docs/baselines/`。
-2. 建立环境：按 `scripts/` 中的构建/验证脚本初始化。
-3. 开发：在 `src/` 下按模块建目录，遵守 `src/DESIGN.md`。
-4. 实验：在 `experiments/` 定义并编排，结果证据归 `project_docs/evidence/`。
-5. 论文：默认写中文 `paper/zh/manuscript/`；仅投稿英文期刊/会议时才转换出英文版 `paper/en/manuscript/`。
+1. 立项评估：填写 `project_docs/design_specs/PROJECT_PROPOSAL_TEMPLATE.md`（问题定义 + 创新性评估 + 可行性 / 风险），通过后再立项。
+2. 登记项目：读 `project_docs/agent_handoff/START_HERE.md`，建立首个基线到 `project_docs/baselines/`。
+3. 建立环境：按 `scripts/` 中的构建 / 验证脚本初始化。
+4. 开发：在 `src/` 下按模块建目录，遵守 `src/DESIGN.md`。
+5. 实验：在 `experiments/` 定义并编排，结果证据归 `project_docs/evidence/`。
+6. 论文：默认写中文 `paper/zh/manuscript/`；仅投稿英文期刊 / 会议时才转换出英文版 `paper/en/manuscript/`。
 
 ## 目录角色
 
