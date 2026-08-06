@@ -15,15 +15,15 @@
 
 | 技能 | 描述 |
 |------|------|
-| `user-paper-style/` | **本项目**论文写作风格规范（中英文术语、证据边界、图表规则）。与 `academic-paper` / `academic-pipeline` 配合。 |
+| `user-paper-style（升级：证据校验+GB/T7714）/` | **本项目**论文写作风格规范（中英文术语、证据边界、图表规则）。与 `academic-paper` / `academic-pipeline` 配合。 |
 
 ## 发现路径
 
 1. 先读本文件与对应 `SKILL.md`。
-2. 写论文时加载 `academic-paper` 或 `academic-pipeline`，同时加载 `user-paper-style` 获取项目特定规则。
+2. 写论文时加载 `academic-paper` 或 `academic-pipeline`，同时加载 `user-paper-style（升级：证据校验+GB/T7714）` 获取项目特定规则。
 3. 若 `skills/` 不可用，回退 `project_docs/agent_handoff/skill_snapshots/`。
 
 ## 规则
 
 - 技能一旦变更，同步更新 `project_docs/agent_handoff/skill_snapshots/` 快照。
-- 通用学术技能（deep-research/academic-paper 等）保持与上游同步；项目本地规则写在 `user-paper-style`。
+- 通用学术技能（deep-research/academic-paper 等）保持与上游同步；项目本地规则写在 `user-paper-style（升级：证据校验+GB/T7714）`。
