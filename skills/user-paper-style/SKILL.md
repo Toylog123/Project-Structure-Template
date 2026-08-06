@@ -1,6 +1,6 @@
 ---
 name: user-paper-style
-description: 论文写作风格规范——中英文术语、证据边界、图表规则、中文写作习惯。与 paper-writing-workflow 配合使用。
+description: 论文写作风格规范——中英文术语、证据边界、图表规则、中文写作习惯。与 academic-paper / academic-pipeline 配合使用，作为项目本地补充。
 ---
 
 # Paper Writing Style
