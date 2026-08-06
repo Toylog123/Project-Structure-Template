@@ -5,6 +5,7 @@
 | 子目录 / 文件 | 角色 |
 |---------------|------|
 | `WORK_PROGRESS.md` | 工作进度（倒序，最新在上） |
+| `LOGS.md` | 总工作日志（按时间正序追加，便于回溯查询） |
 | `agent_handoff/` | 交接入口与状态（README → START_HERE → CURRENT_STATUS → TASK_BOARD → CURRENT_RUN_HANDOFF） |
 | `reports/weekly/` | 周期性总结（周报） |
 | `baselines/` | 具名基线：绑定论文、源码、测试与证据 |
