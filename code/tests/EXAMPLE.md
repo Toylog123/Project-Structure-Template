@@ -19,4 +19,4 @@ def test_example():
 ## 规则
 
 1. 关键回归绑定具名基线（`project_docs/baselines/`）。
-2. 大数据走 `data/` 治理，不放入 `tests/`。
+2. 大数据走 `data/` 治理，不放入 `code/tests/`。

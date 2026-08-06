@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # 基线 manifest 生成 —— 冻结基线前，生成源码 + 测试 + 证据的 SHA-256 清单。
-# 用法：bash scripts/make_manifest.sh [-o <输出文件>] [路径...]
+# 用法：bash code/scripts/make_manifest.sh [-o <输出文件>] [路径...]
 # 默认路径：src tests experiments paper/zh/manuscript project_docs/evidence
 set -u
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 OUT=""
 PATHS=()
 while [ $# -gt 0 ]; do
   case "$1" in
     -o) OUT="${2:-}"; shift 2;;
-    -h|--help) echo "用法：bash scripts/make_manifest.sh [-o 输出] [路径...]"; exit 0;;
+    -h|--help) echo "用法：bash code/scripts/make_manifest.sh [-o 输出] [路径...]"; exit 0;;
     *) PATHS+=("$1"); shift;;
   esac
 done

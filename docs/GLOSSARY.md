@@ -7,7 +7,7 @@
 
 | 术语 | 全称 / 定义 | 出现位置 |
 |------|-------------|----------|
-| … | … | `paper/zh/manuscript/`、`src/DESIGN.md` |
+| … | … | `paper/zh/manuscript/`、`code/src/DESIGN.md` |
 
 ## 指标口径
 

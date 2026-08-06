@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # 项目健康检查 —— 输出"交接就绪度"。任何智能体 / 工具 / 人都可运行。
-# 用法：bash scripts/check_project.sh
+# 用法：bash code/scripts/check_project.sh
 # 退出码：0 = 就绪；1 = 有待办（WARN）。
 set -u
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 TODAY="$(date +%F)"
 PASS=0; WARN=0
 

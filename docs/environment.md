@@ -30,5 +30,5 @@
 
 ## 5. 环境验证
 
-- 运行 `tests/` 中的 smoke test 或 `scripts/` 中某个最小脚本，确认环境正常。
+- 运行 `code/tests/` 中的 smoke test 或 `code/scripts/` 中某个最小脚本，确认环境正常。
 - 验证通过后记录到交接文档，作为"环境就绪"证据。

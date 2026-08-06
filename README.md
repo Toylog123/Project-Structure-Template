@@ -13,7 +13,7 @@
 
 ## 整体设计
 
-（**此处必须详细描述整体设计**。新建项目时，把架构、模块划分、关键决策写在这里，或链接到 `src/DESIGN.md`。）
+（**此处必须详细描述整体设计**。新建项目时，把架构、模块划分、关键决策写在这里，或链接到 `code/src/DESIGN.md`。）
 
 建议覆盖：
 
@@ -25,7 +25,7 @@
 
 详细设计文档位置：
 
-- `src/DESIGN.md` — 源码层设计（随代码演进）
+- `code/src/DESIGN.md` — 源码层设计（随代码演进）
 - `project_docs/design_specs/` — 专项设计规范（如评审、变更触发）
 - `docs/` — 技术文档（架构、指南）
 
@@ -46,8 +46,8 @@
 
 1. 立项评估：填写 `project_docs/design_specs/PROJECT_PROPOSAL_TEMPLATE.md`（问题定义 + 创新性评估 + 可行性 / 风险），通过后再立项。
 2. 登记项目：读 `project_docs/agent_handoff/START_HERE.md`，建立首个基线到 `project_docs/baselines/`。
-3. 建立环境：按 `scripts/` 中的构建 / 验证脚本初始化。
-4. 开发：在 `src/` 下按模块建目录，遵守 `src/DESIGN.md`。
+3. 建立环境：按 `code/scripts/` 中的构建 / 验证脚本初始化。
+4. 开发：在 `code/src/` 下按模块建目录，遵守 `code/src/DESIGN.md`。
 5. 实验：在 `experiments/` 定义并编排，结果证据归 `project_docs/evidence/`。
 6. 论文：默认写中文 `paper/zh/manuscript/`；仅投稿英文期刊 / 会议时才转换出英文版 `paper/en/manuscript/`。
 
@@ -55,15 +55,17 @@
 
 | 目录 | 角色 |
 |------|------|
-| `src/` | 主源码，按技术模块分子目录；`DESIGN.md` 记录源码层设计 |
+| `code/` | 当前版本代码资产：`src/` 源码 + `scripts/` 脚本 + `tests/` 测试 |
+| `code/src/` | 主源码，按技术模块分子目录；`DESIGN.md` 记录源码层设计 |
 | `paper/` | 论文 / 报告 / 成果；`zh/` 默认中文主版本，`en/` 英文转换版本 |
+| `versions/` | 冻结版本集合；每版本为完整体（code/project/experiments），零交叉引用 |
 | `experiments/` | 实验定义与编排（**非结果存档**，结果证据归 `project_docs/evidence/`） |
 | `data/` | 数据治理：`manifests/` `raw/` `derived/` `schemas/` |
-| `project/` | 构建工程与运行配置；生成的工程文件 git-ignored，仅保留 `scripts/` |
+| `project/` | 构建工程与运行配置；生成的工程文件 git-ignored，仅保留 `project/scripts/` |
 | `project_docs/` | 项目过程文档：交接、基线、证据、进度、周报、设计规范、归档 |
 | `docs/` | 技术文档（架构、规范、指南） |
-| `scripts/` | 可复用脚本（python / shell 等） |
-| `tests/` | 测试 |
+| `code/scripts/` | 可复用脚本（python / shell 等） |
+| `code/tests/` | 测试 |
 | `skills/` | 项目级本地技能（供 Claude Code 等加载） |
 | `scratch/` | 临时脚本 / 探针 / 一次性产物（git-ignored） |
 
@@ -79,3 +81,4 @@
 8. **质疑优先**：任何结论、方案与数字在采信前先质疑与验证；证据高于权威，不因来源（用户、上级、主流、既有代码）而盲目认可与服从。
 9. **质量标准**：设计先评审后实施；实施不轻易降级，论文以提升代替降低说法；需要时敢于大改，力争力所能及做到最好。
 10. **Git 纪律**：阶段性工作完成即 `git commit` + `git push`，里程碑打 tag；工程代码推进前先固化当前状态（备份）；可为新版本复制目录（含脚本），但复制后自包含、不引用旧版本文件。
+11. **文档同步**：任何目录 / 结构 / 路径变更后，必须同步更新主目录文档（`README.md` 目录角色与工作规则、`AGENTS.md`、`.codex-handoff.json`），文档与真实结构保持一致。

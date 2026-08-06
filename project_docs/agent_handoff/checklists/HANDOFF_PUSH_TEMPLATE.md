@@ -9,7 +9,7 @@
 - [ ] `TASK_BOARD.md` 活跃表更新状态与证据门
 - [ ] `CURRENT_RUN_HANDOFF.md` 更新
 - [ ] `NEXT_AGENT_PROMPT.md` 更新
-- [ ] 运行 `bash scripts/check_record.sh`，确认今日已记录
+- [ ] 运行 `bash code/scripts/check_record.sh`，确认今日已记录
 
 ## 证据
 
@@ -20,7 +20,7 @@
 ## 卫生（防冗余）
 
 - [ ] 根目录无 `tmp_*` 散落文件
-- [ ] 临时脚本已放 `scratch/` 或已晋级到 `scripts/` / `tests/`
+- [ ] 临时脚本已放 `scratch/` 或已晋级到 `code/scripts/` / `code/tests/`
 - [ ] 生成物已 git-ignored，未误提交
 - [ ] 无重复文档；同一主题只在一处维护
 

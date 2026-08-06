@@ -14,7 +14,7 @@
 ## 命令（可复现）
 
 ```powershell
-python scripts/.../run.py --config ...
+python code/scripts/.../run.py --config ...
 ```
 
 ## 期望输出
