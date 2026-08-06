@@ -13,6 +13,7 @@
 
 ```text
 paper/
+|- GLOSSARY.md           # 中英专业术语对照表（翻译统一）
 |- zh/
 |  |- manuscript/        # 中文主稿件（.tex，单文件）
 |  |- responses/         # 审稿回复
@@ -37,3 +38,4 @@ paper/
 2. 生成物（build/、中间文件、PDF）一律 git-ignored，不提交。
 3. 编译：`paper/zh/scripts/compile.bat`（输出到 `paper/zh/build/`）。
 4. 定量折线图由 `figures/scripts/` 脚本生成以保证可复现；系统/结构图用 draw.io 存 `figures/sources/`，定稿导出 `figures/final/`。
+5. **术语统一**：`GLOSSARY.md` 为中英专业术语对照表；论文用到的每个术语均登记其中，中英转换前先核对，两版译名必须一致。
