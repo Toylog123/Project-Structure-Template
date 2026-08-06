@@ -58,7 +58,7 @@
 | `code/` | 当前版本代码资产：`src/` 源码 + `scripts/` 脚本 + `tests/` 测试 |
 | `code/src/` | 主源码，按技术模块分子目录；`DESIGN.md` 记录源码层设计 |
 | `paper/` | 论文 / 报告 / 成果；`zh/` 默认中文主版本，`en/` 英文转换版本 |
-| `versions/` | 冻结版本集合；每版本为完整体（code/project/experiments），零交叉引用 |
+| `versions/` | 冻结版本集合；每版本为完整体（code/project/experiments/docs），零交叉引用；主目录为最新版本 |
 | `experiments/` | 实验定义与编排（**非结果存档**，结果证据归 `project_docs/evidence/`） |
 | `data/` | 数据治理：`manifests/` `raw/` `derived/` `schemas/` |
 | `project/` | 构建工程与运行配置；生成的工程文件 git-ignored，仅保留 `project/scripts/` |
