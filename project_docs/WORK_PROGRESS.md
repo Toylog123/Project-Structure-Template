@@ -4,6 +4,13 @@
 
 > 日期格式 `YYYY-MM-DD`。
 
+## 2026-08-06 新增论文中英专业术语对照表
+
+- 做了什么：在 `paper/GLOSSARY.md` 新建论文专业术语表（中英对照 + 名词解释 + 翻译规则），要求论文所有术语 / 专业名词详细登记；同步更新 `paper/README.md`、`paper/en/README.md` 引用术语表。
+- 关键结果：推送 `3523fd4`；修复 git SSL 推送问题（全局设置 `http.sslBackend=schannel`）。
+- 证据 / 提交：`3523fd4`
+- 下一步：实际项目写论文前，先在此表登记全部术语再行文。
+
 ## 2026-08-04 建立通用工程模板（Project-Structure-Template）
 
 - 做了什么：从零搭建通用工程项目模板：src / paper / experiments / data / project_docs / scripts / tests / skills 目录；交接体系（agent_handoff）、进度记录（WORK_PROGRESS / CURRENT_STATUS）、周报模板、版本管理（versioning.md）、中英双版本论文框架（paper/zh + paper/en）。
