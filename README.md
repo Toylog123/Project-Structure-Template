@@ -71,7 +71,7 @@
 
 ## 工作规则
 
-1. **版本定义**：论文与具名基线（`project_docs/baselines/`）共同定义「当前版本」；工作树名、运行目录名不定义版本。
+1. **版本定义**：每个版本 = 论文+源码+测试+证据的四元绑定，冻结为 `versions/<基线ID>/` 完整快照；工作树名、运行目录名不定义版本，详见 `project_docs/versioning.md`。
 2. **工作树**：一次性执行环境，物理位置在同步仓库之外，注册于 `project_docs/worktrees/WORKTREE_REGISTRY.csv`。
 3. **结论口径**：每条结论区分「软件本地复现 / 策略复现 / 硬件复现 / 实测数据」，避免过度声称。
 4. **证据自包含**：每个证据包含 README + 摘要 + 输入/来源 + 原始输出 + SHA-256 清单，见 `project_docs/evidence/README.md`。
