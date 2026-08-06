@@ -57,6 +57,7 @@
 1. **每轮结束前**：在 `project_docs/WORK_PROGRESS.md` **顶部**插入本轮条目（日期格式 `YYYY-MM-DD`），并同步更新 `agent_handoff/status_logs/CURRENT_STATUS.md`、`agent_handoff/TASK_BOARD.md`、`agent_handoff/CURRENT_RUN_HANDOFF.md`。
 2. **自检**：结束前运行 `bash code/scripts/check_record.sh`，确认今日已记录。该脚本是通用工具，任何智能体 / 工具 / 人均可调用。
 3. **工具附加提醒**：若使用 Claude Code，`.claude/hooks/` 的 Stop hook 会自动执行同一检查（仅 CC 生效）；其他工具按第 2 条手动运行。
+4. **经验沉淀**：解决任何问题（路径、解析、构建、环境等）后，在 `docs/EXPERIENCE.md` 登记一条经验（现象 / 原因 / 解决 / 验证），避免反复踩坑。
 
 # 项目级技能入口
 
