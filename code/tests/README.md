@@ -1,9 +1,23 @@
-# 测试
+# 测试策略
 
-按测试对象建立子目录。命名建议：`test_<对象>.py` / `<对象>_test.*`。
+## 何时写测试
 
-规则：
+- 新功能：实现前先写测试（TDD 优先）或随实现同步写。
+- Bug 修复：先加失败用例复现，再修复。
+- 关键回归：绑定具名基线（`project_docs/baselines/`）。
 
-1. 测试结果报告与日志归 `project_docs/evidence/`，不留在本目录。
-2. 测试数据小量可入 `code/tests/data/`；大量数据走 `data/raw/` 或 `data/derived/` 治理。
-3. 关键回归结果应绑定具名基线（`project_docs/baselines/`）。
+## 覆盖门槛
+
+- 核心逻辑（设计 / 关键路径）覆盖率目标 ≥ 80%；其余按需。
+- 无法覆盖的（硬件 / 外部依赖）用契约测试或集成测试补。
+
+## 命名与组织
+
+- 命名：`test_<对象>.py`（Python）/ `<对象>_test.*`。
+- 按测试对象建子目录；测试数据小量入 `tests/data/`，大量走 `data/` 治理。
+
+## 测试与证据
+
+- 测试结果 / 日志 / 报告归 `project_docs/evidence/`。
+- 冻结基线时 manifest 锁定「源码 + 测试 + 证据」（见 `project_docs/versioning.md`）。
+- 反例测试（自杀式测试）写入 `experiments/` 计划，最先运行。

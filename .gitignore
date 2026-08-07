@@ -86,3 +86,12 @@ data/derived/*
 
 # ===== 不可变证据例外（如需保留证据中的原始 log，改白名单） =====
 # project_docs/evidence/**/raw/*.log
+
+# ===== 安全（密钥 / 环境变量）=====
+.env
+.env.*
+*.pem
+*.key
+*.p12
+id_rsa*
+*secret*
