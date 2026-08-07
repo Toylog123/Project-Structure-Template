@@ -46,6 +46,7 @@
 | 给下一任写提示词 | `project_docs/agent_handoff/NEXT_AGENT_PROMPT.md` |
 | 运行记录自检确认今日已记录 | `bash code/scripts/check_record.sh` |
 | 解决任何问题后登记经验 | `docs/EXPERIENCE.md`（现象→原因→解决→验证） |
+| 未解决的问题登记并持续保留，必须告知用户 | `project_docs/OPEN_ISSUES.md` |
 
 ## 5. 并行协作（多智能体并发）
 

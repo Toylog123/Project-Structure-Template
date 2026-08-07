@@ -39,6 +39,19 @@ ph=$(grep -rEn --include='*.md' --include='*.tex' --include='*.json' --include='
   | grep -vE '\.git/|/scratch/|check_project\.sh|check_record\.sh|versioning\.md|GLOSSARY|README\.md|AGENTS\.md' | wc -l)
 echo "[INFO] 占位 / TODO 残留：$ph 处（模板阶段属预期，实际项目应清零）"
 
+# 5. 未决问题（Open Issues）
+OI="$ROOT/project_docs/OPEN_ISSUES.md"
+if [ -f "$OI" ]; then
+  open_count=$(grep -c '未解决' "$OI" 2>/dev/null || true)
+  if [ "$open_count" -gt 0 ]; then
+    warn "有 $open_count 个未决问题（见 project_docs/OPEN_ISSUES.md），必须告知用户"
+  else
+    ok "无未决问题"
+  fi
+else
+  ok "无未决问题清单（模板阶段）"
+fi
+
 echo "=== 结果：PASS=$PASS WARN=$WARN ==="
 [ "$WARN" -eq 0 ] || exit 1
 exit 0

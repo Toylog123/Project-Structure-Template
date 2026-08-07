@@ -9,6 +9,7 @@
 - [ ] `TASK_BOARD.md` 活跃表更新状态与证据门
 - [ ] `CURRENT_RUN_HANDOFF.md` 更新
 - [ ] `NEXT_AGENT_PROMPT.md` 更新
+- [ ] `OPEN_ISSUES.md` 未决问题已核对（未解决的全部列出）
 - [ ] 运行 `bash code/scripts/check_record.sh`，确认今日已记录
 
 ## 证据
