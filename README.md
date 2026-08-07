@@ -2,6 +2,7 @@
 
 > 本目录是**通用工程项目框架模板**，供后续所有工程类项目复制使用。
 > 使用方法：整体复制本目录 → 重命名为实际项目 → 在 `[占位]` 处填写内容 → 按需裁剪。
+> 移植已有项目：见 `project_docs/migration/FRAMEWORK_MIGRATION_GUIDE.md`。
 
 ## 项目简介
 
@@ -26,52 +27,75 @@
 详细设计文档位置：
 
 - `code/src/DESIGN.md` — 源码层设计（随代码演进）
-- `project_docs/design_specs/` — 专项设计规范（如评审、变更触发）
-- `docs/` — 技术文档（架构、指南）
+- `project_docs/design_specs/` — 立项评估与专项设计规范
+- `docs/` — 技术文档（环境、术语、经验）
 
 ## 最新进展
 
 **当前权威状态入口：**
 
 1. 工作进度（倒序记录）：`project_docs/WORK_PROGRESS.md`
-2. 当前状态（最新一轮）：`project_docs/agent_handoff/status_logs/CURRENT_STATUS.md`
-3. 任务看板（每步任务的证据门）：`project_docs/agent_handoff/TASK_BOARD.md`
-4. 本周总结：`project_docs/reports/weekly/`
+2. 总工作日志（正序，可回溯）：`project_docs/LOGS.md`
+3. 当前状态（最新一轮）：`project_docs/agent_handoff/status_logs/CURRENT_STATUS.md`
+4. 任务看板（每步任务与证据门）：`project_docs/agent_handoff/TASK_BOARD.md`
+5. 未决问题（未解决持续保留，必须告知）：`project_docs/OPEN_ISSUES.md`
+6. 本周总结：`project_docs/reports/weekly/`
 
-（更新本文档时，把「最新进展」小节同步到最近一轮记录，链接指向上述文件，不要在此重复粘贴全部内容。）
+（更新本文档时，把「最新进展」小节同步到最近一轮记录，链接指向上述文件，不重复粘贴内容。）
 
 ## 快速开始
 
 （复制模板后按需填写）
 
-1. 立项评估：填写 `project_docs/design_specs/PROJECT_PROPOSAL_TEMPLATE.md`（问题定义 + 创新性评估 + 可行性 / 风险），通过后再立项。
+1. 立项评估：填 `project_docs/design_specs/PROJECT_PROPOSAL_TEMPLATE.md`（问题定义 + 创新性评估 + **自杀式测试** + 风险评估），通过后再立项。
 2. 登记项目：读 `project_docs/agent_handoff/START_HERE.md`，建立首个基线到 `project_docs/baselines/`。
-3. 建立环境：按 `code/scripts/` 中的构建 / 验证脚本初始化。
+3. 建立环境：填 `docs/environment.md`（工具链版本、依赖、复现步骤），按 `code/scripts/` 验证。
 4. 开发：在 `code/src/` 下按模块建目录，遵守 `code/src/DESIGN.md`。
-5. 实验：在 `experiments/` 定义并编排，结果证据归 `project_docs/evidence/`。
-6. 论文：默认写中文 `paper/zh/manuscript/`；仅投稿英文期刊 / 会议时才转换出英文版 `paper/en/manuscript/`。
+5. 实验：在 `experiments/` 定义（含反驳性测试），结果证据归 `project_docs/evidence/`。
+6. 论文：默认写中文 `paper/zh/manuscript/`；术语入 `paper/GLOSSARY.md`；仅投稿英文期刊时才转换英文版。
+7. 阶段完成：打基线 + git tag，完整复制为 `versions/<基线ID>/` 冻结快照。
 
 ## 目录角色
 
+### 仓库契约（顶层）
+
+| 文件 / 目录 | 角色 |
+|------|------|
+| `README.md` | 本文档：总览 / 设计 / 进展 / 快速开始 / 目录角色 / 工作规则 |
+| `AGENTS.md` | 智能体行为契约：质疑 / 质量 / 自我批判 / 记录 / 并行 |
+| `CONTRIBUTING.md` | 协作规范：分支 / 提交 / PR / 多智能体分工 |
+| `SECURITY.md` | 安全与密钥管理（什么不进仓库） |
+| `.codex-handoff.json` | 交接元数据（read_order 阅读顺序） |
+| `.github/` | PR 模板 + CI 自动检查 |
+
+### 当前版本（主目录 = 最新最好的版本）
+
 | 目录 | 角色 |
 |------|------|
-| `code/` | 当前版本代码资产：`src/` 源码 + `scripts/` 脚本 + `tests/` 测试 |
-| `code/src/` | 主源码，按技术模块分子目录；`DESIGN.md` 记录源码层设计 |
-| `paper/` | 论文 / 报告 / 成果；`zh/` 默认中文主版本，`en/` 英文转换版本 |
-| `versions/` | 冻结版本集合；每版本为完整体（code/project/experiments/docs），零交叉引用；主目录为最新版本 |
-| `experiments/` | 实验定义与编排（**非结果存档**，结果证据归 `project_docs/evidence/`） |
+| `code/` | 代码资产：`src/` 源码 + `scripts/` 脚本 + `tests/` 测试 |
+| `project/` | 构建工程 / 运行脚本（生成工程 git-ignored） |
+| `experiments/` | 实验定义与编排（含反驳性测试；结果证据归 `evidence/`） |
+| `docs/` | 技术文档：环境（`environment.md`）、术语（`GLOSSARY.md`）、经验库（`EXPERIENCE.md`） |
+
+### 项目级共享
+
+| 目录 | 角色 |
+|------|------|
 | `data/` | 数据治理：`manifests/` `raw/` `derived/` `schemas/` |
-| `project/` | 构建工程与运行配置；生成的工程文件 git-ignored，仅保留 `project/scripts/` |
-| `project_docs/` | 项目过程文档：交接、基线、证据、进度、周报、设计规范、归档 |
-| `docs/` | 技术文档（架构、规范、指南） |
-| `code/scripts/` | 可复用脚本（python / shell 等） |
-| `code/tests/` | 测试 |
-| `skills/` | 项目级本地技能（供 Claude Code 等加载） |
-| `scratch/` | 临时脚本 / 探针 / 一次性产物（git-ignored） |
+| `paper/` | 论文：`zh/` 中文主版 + `en/` 英文转换版 + `GLOSSARY.md` 术语表 |
+| `project_docs/` | 过程文档：交接 / 基线 / 证据 / 进度 / 日志 / 未决 / 周报 / 评审 |
+
+### 版本与辅助
+
+| 目录 | 角色 |
+|------|------|
+| `versions/` | 冻结版本集合；每版本为完整体（code/project/experiments/docs），零交叉引用 |
+| `skills/` | 项目级技能（ARS 学术技能 + `user-paper-style`） |
+| `scratch/` | 临时脚本 / 探针（git-ignored） |
 
 ## 工作规则
 
-1. **版本定义**：每个版本 = 论文+源码+测试+证据的四元绑定，冻结为 `versions/<基线ID>/` 完整快照；工作树名、运行目录名不定义版本，详见 `project_docs/versioning.md`。
+1. **版本定义**：每个版本 = 论文 + 源码 + 测试 + 证据的四元绑定，冻结为 `versions/<基线ID>/` 完整快照；工作树名、运行目录名不定义版本，详见 `project_docs/versioning.md`。
 2. **工作树**：一次性执行环境，物理位置在同步仓库之外，注册于 `project_docs/worktrees/WORKTREE_REGISTRY.csv`。
 3. **结论口径**：每条结论区分「软件本地复现 / 策略复现 / 硬件复现 / 实测数据」，避免过度声称。
 4. **证据自包含**：每个证据包含 README + 摘要 + 输入/来源 + 原始输出 + SHA-256 清单，见 `project_docs/evidence/README.md`。
