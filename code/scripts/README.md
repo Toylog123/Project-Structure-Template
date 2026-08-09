@@ -17,3 +17,5 @@
 1. 脚本应**自包含、可重复运行**，注释标明输入、输出、运行环境。
 2. 晋级路径：`scratch/`（临时）→ `code/scripts/`（复用）→ 证据包 `source/`（随实验固化）。
 3. 一次性探针脚本留在 `scratch/`，不要堆积在这里。
+
+| `run_with_timeout.sh` | 长任务超时运行包装（测试/实验/构建防卡死） | `bash code/scripts/run_with_timeout.sh <秒> <命令...>` |
