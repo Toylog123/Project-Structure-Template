@@ -47,20 +47,26 @@
 | 归因结论写入实验记录与经验库（`docs/EXPERIENCE.md`） | 结果异常不记录、不分析 |
 | 区分"实现可修"与"设定需改"，分别处理 | 把两者混为一谈 |
 
-## 5. 记录与经验（实时记录）
+## 5. 记录与文档同步（实时记录）
 
-**工作过程中边做边记、同步记录，不做事后补记**——防止遗忘、失真、丢失细节。完成一个动作，随即记录，不留到收尾。
+**工作过程中边做边记、同步记录，不做事后补记**——完成一个动作随即记录，不留到收尾。**所有相关文档都要随工作同步更新，不只下列几个。**
 
-**专职记录（多智能体时）**：并行协作时，可分配一个智能体专门负责**实时记录**各智能体的操作与结果（维护 `LOGS.md` / `WORK_PROGRESS.md` / `OPEN_ISSUES.md`），其他智能体专注执行——避免事后补记。
+**专职记录（多智能体时）**：分配一个智能体专门负责实时记录与文档同步，其他智能体专注执行。
 
-| 怎么做 | 路径/命令 |
-|--------|----------|
-| 关键动作随时追加总日志（正序） | `project_docs/LOGS.md` |
-| 每轮结束前更新进度（顶部插入） | `project_docs/WORK_PROGRESS.md` |
-| 同步更新本轮状态 | `project_docs/agent_handoff/status_logs/CURRENT_STATUS.md` |
-| 同步更新任务证据门 | `project_docs/agent_handoff/TASK_BOARD.md` |
-| 同步更新本轮交接 | `project_docs/agent_handoff/CURRENT_RUN_HANDOFF.md` |
-| 给下一任写提示词 | `project_docs/agent_handoff/NEXT_AGENT_PROMPT.md` |
+**文档更新清单**（按触发时机更新对应文档）：
+
+| 触发时机 | 要更新的文档 |
+|----------|--------------|
+| 每个关键动作 | `project_docs/LOGS.md`（总日志） |
+| 每轮结束 | `project_docs/WORK_PROGRESS.md`、`agent_handoff/status_logs/CURRENT_STATUS.md`、`agent_handoff/TASK_BOARD.md`、`agent_handoff/CURRENT_RUN_HANDOFF.md`、`agent_handoff/NEXT_AGENT_PROMPT.md` |
+| 发现问题 | `project_docs/OPEN_ISSUES.md` |
+| 解决问题 | `docs/EXPERIENCE.md`（经验库） |
+| 结构 / 路径变更 | `README.md`、`AGENTS.md`、`.codex-handoff.json`、`project_docs/README.md` |
+| 版本相关变更 | `project_docs/versioning.md`、`baselines/` |
+| 术语 / 译名变更 | `docs/GLOSSARY.md`、`paper/GLOSSARY.md` |
+| 数据 / 结论变更 | `project_docs/evidence/`（交叉表、索引） |
+| 每周日 | `reports/weekly/2026-W##.md`（周报） |
+| 自检 | `bash code/scripts/check_record.sh` |
 | 运行记录自检确认今日已记录 | `bash code/scripts/check_record.sh` |
 | 解决任何问题后登记经验 | `docs/EXPERIENCE.md`（现象→原因→解决→验证） |
 | 未解决的问题登记并持续保留，必须告知用户 | `project_docs/OPEN_ISSUES.md` |
