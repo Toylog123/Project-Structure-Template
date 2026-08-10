@@ -1,95 +1,197 @@
 % =============================================================================
-% 中文论文主稿件模板（IEEE 期刊格式）
+% 中文论文主稿件模板 —— 《计算机辅助设计与图形学学报》投稿格式
 %
-% 用法：
-%   1. 复制本文件为 <论文名>.tex（保持单文件，不拆分 sections）
-%   2. 在 paper/zh/manuscript/ 下编辑
-%   3. 编译：paper/zh/scripts/compile.bat（xelatex，输出到 paper/zh/build/）
+% 编译：LuaLaTeX（paper/zh/scripts/compile.bat；脚本自动设 OSFONTDIR 指向项目字体）
+% 字体：项目内 paper/zh/fonts/（换电脑无需重装系统字体）
+%
+% 对照期刊格式要点：
+%   中文正文 方正书宋_GBK 10pt ｜ 英文/公式/符号 Times New Roman
+%   标题 黑体三号 ｜ 作者 方正仿宋四号 ｜ 单位 方正书宋8pt
+%   摘要/关键词 方正书宋8.5pt（"摘要/关键词"标签黑体）
+%   正文双栏（栏宽21.59字符，栏距3字符）
+%   1级标题 11.5pt 黑体 ｜ 2级 五号 黑体 ｜ 3级 书宋10pt
+%   参考文献：标题黑体11.5pt，条目8pt（GB/T 7714）
+%   注：占位内容用 {花括号} 或直接文字，勿用 [方括号]（会被当作可选参数）
 % =============================================================================
-\documentclass[journal]{IEEEtran}
+\documentclass[UTF8]{ctexart}
 
-% -----------------------------------------------------------------------------
-% 宏包引用
-% -----------------------------------------------------------------------------
-\usepackage{ctex}
-\usepackage{amsmath,amssymb}
-\usepackage{booktabs}
+% ---------------------------------------------------------------------------
+% 宏包
+% ---------------------------------------------------------------------------
+\usepackage{fontspec}
+\usepackage{unicode-math}   % \setmathfont 依赖（含 amssymb 符号，勿再加载 amssymb）
+\usepackage{amsmath}
+\usepackage{booktabs}       % 三线表
 \usepackage{graphicx}
 \usepackage{array}
-\usepackage[nocompress]{cite}
+\usepackage{cite}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xurl}
-\usepackage{unicode-math}
+\usepackage{enumitem}
 
-\setmainfont{TeX Gyre Termes}
-\setsansfont{TeX Gyre Heros}
-\setmonofont{Latin Modern Mono}
-\setmathfont{TeX Gyre Termes Math}
+% ---------------------------------------------------------------------------
+% 字体（项目内 paper/zh/fonts/；compile.ps1 设 OSFONTDIR；换电脑无需重装）
+% 方正仿宋_GBK 解压到 fonts/FangZhengFangSong-GBK/ 后，把 zhfang 换为对应族名
+% ---------------------------------------------------------------------------
+\setCJKmainfont{FZShuSong-Z01}      % 方正书宋_GBK（中文正文）
+\setCJKsansfont{SimHei}             % 黑体（标题/摘要标签）
+\setCJKfamilyfont{zhfang}{FangSong} % 仿宋（作者名；方正仿宋_GBK 解压后换族名）
+\setmainfont{Times New Roman}       % 英文/数字/符号
+\setmathfont{TeX Gyre Termes Math}  % 公式 Times 风格（TeX Live 自带）
+
+% 三线表线宽（上下 1.0pt，内线 0.5pt）
+\setlength{\heavyrulewidth}{1pt}
+\setlength{\lightrulewidth}{0.5pt}
+
 \graphicspath{{../figures/final/}}
 \setlength{\emergencystretch}{2em}
 \Urlmuskip=0mu plus 1mu\relax
 
-% -----------------------------------------------------------------------------
-% 文档信息
-% -----------------------------------------------------------------------------
-\title{[中文标题]}
-\author{[作者]%
-\thanks{[作者，[单位]，[国家]。电子邮箱：[邮箱]。}}
-
+% ---------------------------------------------------------------------------
+% 中文标题区（单栏通栏）
+% ---------------------------------------------------------------------------
 \begin{document}
-\maketitle
 
-% -----------------------------------------------------------------------------
-% 摘要
-% -----------------------------------------------------------------------------
-\begin{abstract}
-[中文摘要：问题、方法、主要结果与结论。]
-\end{abstract}
+\begin{center}
+  % 标题：黑体三号
+  {\zihao{3}\heiti {中文标题}}\par
+  \vspace{0.6em}
+  % 作者：方正仿宋四号（通信作者加 *；同单位不加序号）
+  {\zihao{4}\fangsong {作者1}$^{1,2)}$，{作者2}$^{1)*}$}\par
+  \vspace{0.3em}
+  % 单位：方正书宋 8pt（单位全称到院系级；涉密除外）
+  {\fontsize{8pt}{10pt}\selectfont
+    1)（{中文单位全称}　{城市}　{邮编}）\quad
+    2)（{中文单位全称}　{城市}　{邮编}）}\par
+  \vspace{0.3em}
+  % 通信作者邮箱
+  {\fontsize{8pt}{10pt}\selectfont (E-mail: {邮箱})}\par
+\end{center}
 
-\begin{IEEEkeywords}
-[关键词一]，[关键词二]，[关键词三]
-\end{IEEEkeywords}
+\vspace{0.3em}
+\noindent{\heiti\fontsize{8.5pt}{11pt}\selectfont 摘\quad 要：}%
+{\fontsize{8.5pt}{11pt}\selectfont
+{中文摘要：目的(1~2句)、方法过程、实验/算例(数据、对比、评价指标、定量结果)；不用"本文/我们"，用"所提方法/算法/模型"。}}\par
 
-% -----------------------------------------------------------------------------
-% 正文
-% -----------------------------------------------------------------------------
-\section{引言}
-[研究背景、动机、贡献与结构安排。]
+\vspace{0.3em}
+\noindent{\heiti\fontsize{8.5pt}{11pt}\selectfont 关键词：}%
+{\fontsize{8.5pt}{11pt}\selectfont
+{关键词1}；{关键词2}；{关键词3}；{关键词4}；{关键词5}}\par
 
-\section{系统设计}
-[系统架构、核心模块、关键设计决策。图表引用：图~\ref{fig:architecture}、表~\ref{tab:params}。]
+\vspace{0.3em}
+\noindent{\fontsize{8.5pt}{11pt}\selectfont
+中图法分类号：{分类号}\hfill DOI：10.3724/SP.J.1089.{稿件编号}}\par
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{fig1_architecture}
-\caption{系统架构图}
-\label{fig:architecture}
-\end{figure}
+% ---------------------------------------------------------------------------
+% 英文标题区（Times New Roman；题目实词首字母大写）
+% ---------------------------------------------------------------------------
+\begin{center}
+  {\fontsize{13.5pt}{16pt}\selectfont\bfseries {English Title}}\par
+  \vspace{0.5em}
+  {\zihao{5}\selectfont {Author 1}$^{1,2)}$，{Author 2}$^{1)*}$}\par
+  \vspace{0.3em}
+  {\fontsize{8.5pt}{10pt}\selectfont\itshape
+    1) ({English Affiliation}，{City} {Postcode})}\par
+  \vspace{0.3em}
+  \noindent{\fontsize{9pt}{12pt}\selectfont
+  \textbf{Abstract:} {English abstract.}\par
+  \textbf{Key words:} {kw1}; {kw2}; {kw3}; {kw4}; {kw5}}
+\end{center}
 
+% ---------------------------------------------------------------------------
+% 正文：双栏开始
+% ---------------------------------------------------------------------------
+\twocolumn
+
+\fontsize{10pt}{14pt}\selectfont % 正文 方正书宋 10pt
+
+% ---------- 引言（不加章节号与标题） ----------
+{引言：研究背景、动机、与已有工作的区别。不插图、表、公式，不用结论性表述；与摘要、结论不重复。}
+
+% ---------- 1 级标题：11.5pt 黑体 ----------
+\section{\heiti\fontsize{11.5pt}{14pt}\selectfont {1级标题}}
+
+{正文。}
+
+% ---------- 2 级标题：五号 黑体 ----------
+\subsection{\heiti\zihao{5}\selectfont {2级标题}}
+
+{正文。}
+
+% ---------- 3 级标题：方正书宋 10pt ----------
+\subsubsection{\fontsize{10pt}{12pt}\selectfont {3级标题}}
+
+{正文。}
+
+% ---------- 图（示例） ----------
+% 图题/分图题精炼、图内不生成标题；图题无句末标点；图可通栏；文字环绕用嵌入型
+% 把图文件放 paper/zh/figures/final/ 后取消下面注释
+% \begin{figure}[t]
+% \centering
+% \includegraphics[width=\columnwidth]{fig1_architecture}
+% \caption{{图题（图题无标点）}} % 方正书宋 9pt
+% \label{fig:architecture}
+% \end{figure}
+
+% ---------- 三线表（示例） ----------
+% 表题黑体9pt；表序号 Times 加粗；栏头/栏目书宋8pt；三线表(上下1.0pt、内0.5pt)
 \begin{table}[t]
 \centering
-\caption{关键参数}
+\caption{\heiti\fontsize{9pt}{11pt}\selectfont {表题}} % 黑体9pt
 \label{tab:params}
-\begin{tabular}{ll}
+\fontsize{8pt}{10pt}\selectfont
+\begin{tabular}{lcc}
 \toprule
-参数 & 值 \\
+{栏头} & {横向栏目} & {横向栏目} \\
 \midrule
-示例 & 占位 \\
+{纵栏目} & 数值 & 数值 \\
+{纵栏目} & 数值 & 数值 \\
 \bottomrule
-\end{tabular}
+\end{tabular}\\[2pt]
+\fontsize{8pt}{10pt}\selectfont 注：粗体表示最优值。 % 表注8pt
 \end{table}
 
-\section{实验}
-[实验设置、结果与分析。每条数字必须能追溯到 project_docs/evidence/ 中的证据包。]
+% ---------- 公式（对应 MathType；被引用的加序号，先给出后引用） ----------
+\begin{equation}
+  E = m c^2 \label{eq:energy}
+\end{equation}
+如式~(\ref{eq:energy}) 所示。
 
-\section{结论}
-[总结与展望。]
+% ---------- 算法（输入/输出书宋10pt；Step 书宋9pt；下级首行右移2格） ----------
+\textbf{本文算法步骤如下：}\\
+输入：{输入描述}。\\
+输出：{输出描述}。\\
+Step1. {第一步操作}。\\
+Step2. {第二步操作}；\\
+\hspace{2em} Step2.1. {子步骤，右移2格}；\\
+\hspace{2em} Step2.2. {子步骤}。
 
-% -----------------------------------------------------------------------------
-% 参考文献
-% -----------------------------------------------------------------------------
-\begin{thebibliography}{1}
-\bibitem{ref1} [第一作者], ``[文献标题],'' [期刊/会议], vol.~x, no.~x, pp.~xx--xx, [年份].
+% ---------- 结语（两字标题加自然空；不重复摘要与引言） ----------
+\section{\heiti\fontsize{11.5pt}{14pt}\selectfont 结\quad 语}
+{结语：要点概述、优缺点分析、未来展望。}
+
+% ---------- 致谢（非必需） ----------
+\section*{\heiti\fontsize{11.5pt}{14pt}\selectfont 致\quad 谢}
+{感谢{XX}。非必需项，对不符合署名条件但有贡献者致谢。}
+
+% ---------------------------------------------------------------------------
+% 参考文献（标题黑体11.5pt；条目8pt，GB/T 7714，中文文献给英文信息）
+% ---------------------------------------------------------------------------
+\begin{thebibliography}{99}
+\fontsize{8pt}{10pt}\selectfont
+\bibitem{ref1} {作者}. {题名}[J]. {期刊名}, {年}, {卷}({期}): {页码}. % 期刊
+\bibitem{ref2} {作者}. {题名}[C] //{会议论文集名称}. {出版地}: {出版者}, {年}: {页码}. % 会议
+\bibitem{ref3} {作者}. {书名}[M]. {版本}. {出版地}: {出版者}, {年}: {页码}. % 专著
+\bibitem{ref4} {作者}. {题名}[D]. {保存地}: {保存单位}, {年}. % 学位论文
+\bibitem{ref5} {作者}. {题名}[P]. {国别}, {专利号}. {日期}. % 专利
+\bibitem{ref6} {起草者}. {标准代号} {标准名称}[S]. {出版地}: {出版者}, {年}. % 标准
 \end{thebibliography}
+
+% ---------------------------------------------------------------------------
+% 附录（可选；附录文字9pt）
+% ---------------------------------------------------------------------------
+% \appendix
+% \section*{\heiti\zihao{5}\selectfont 附录A　{标题}}
+% \fontsize{9pt}{12pt}\selectfont {附录正文。}
 
 \end{document}

@@ -1,0 +1,154 @@
+% =============================================================================
+% 示例论文 —— 按《计算机辅助设计与图形学学报》投稿格式填写
+% 本文件演示完整格式；正式投稿复制本文件并替换内容。
+% 编译：xelatex（paper/zh/scripts/compile.bat -Name example_paper）
+% =============================================================================
+\documentclass[UTF8]{ctexart}
+
+\usepackage{fontspec}
+\usepackage{unicode-math}   % \setmathfont 依赖（含 amssymb 符号，勿再加载 amssymb）
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{cite}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\usepackage{enumitem}
+
+% ---------- 字体（同 template.tex） ----------
+\setCJKmainfont{FZShuSong-Z01}
+\setCJKsansfont{SimHei}
+\setCJKfamilyfont{zhfang}{FangSong}
+% \setCJKfamilyfont{zhfang}{方正仿宋_GBK 解压后族名}
+\setmainfont{Times New Roman}
+\setmathfont{TeX Gyre Termes Math}
+
+\graphicspath{{../figures/final/}}
+\setlength{\emergencystretch}{2em}
+\Urlmuskip=0mu plus 1mu\relax
+
+\begin{document}
+
+% ---------- 中文标题区 ----------
+\begin{center}
+  {\zihao{3}\heiti 面向高速流分类的异构并行处理系统设计与评估}\par
+  \vspace{0.6em}
+  {\zihao{4}\fangsong 张三$^{1,2)}$，李四$^{1)*}$，王五$^{2)}$}\par
+  \vspace{0.3em}
+  {\fontsize{8pt}{10pt}\selectfont
+    1)（国防科技大学　计算机学院　长沙　410073）\quad
+    2)（某研究院　先进计算研究所　北京　100000）}\par
+  \vspace{0.3em}
+  {\fontsize{8pt}{10pt}\selectfont (E-mail: lisi@nudt.edu.cn)}\par
+\end{center}
+
+\vspace{0.3em}
+\noindent{\heiti\fontsize{8.5pt}{11pt}\selectfont 摘\quad 要：}%
+{\fontsize{8.5pt}{11pt}\selectfont
+针对高速网络环境下流分类吞吐受限的问题，所提方法采用快慢路径分离的异构并行架构，将流缓存命中请求置于流水线快路径处理，未命中请求转入慢路径匹配。实验基于 100 Gbps 硬件平台完成，与现有方案相比，所提方法在保持规则更新连续性的前提下，将分类吞吐提升至 102.35 Gbps，平均时延降低约 30\%。}\par
+
+\vspace{0.3em}
+\noindent{\heiti\fontsize{8.5pt}{11pt}\selectfont 关键词：}%
+{\fontsize{8.5pt}{11pt}\selectfont
+流分类；异构并行；快慢路径分离；FPGA；时延优化}\par
+
+\vspace{0.3em}
+\noindent{\fontsize{8.5pt}{11pt}\selectfont
+中图法分类号：TP391.41\hfill DOI：10.3724/SP.J.1089.2026-00001}\par
+
+% ---------- 英文标题区 ----------
+\begin{center}
+  {\fontsize{13.5pt}{16pt}\selectfont\bfseries Design and Evaluation of a Heterogeneous Parallel Processing System for High-Speed Flow Classification}\par
+  \vspace{0.5em}
+  {\zihao{5}\selectfont Zhang San$^{1,2)}$，Li Si$^{1)*}$，and Wang Wu$^{2)}$}\par
+  \vspace{0.3em}
+  {\fontsize{8.5pt}{10pt}\selectfont\itshape
+    1) (College of Computer Science and Technology, National University of Defense Technology, Changsha 410073, China)\quad
+    2) (Institute of Advanced Computing, Beijing 100000, China)}\par
+  \vspace{0.3em}
+  \noindent{\fontsize{9pt}{12pt}\selectfont
+  \textbf{Abstract:} To address the throughput bottleneck of flow classification in high-speed networks, the proposed method adopts a heterogeneous parallel architecture with separated fast and slow paths. Experiments on a 100 Gbps hardware platform show that the proposed method improves classification throughput to 102.35 Gbps while reducing average latency by about 30\%.\par
+  \textbf{Key words:} flow classification; heterogeneous parallel; fast-slow path separation; FPGA; latency optimization}%
+\end{center}
+
+% ---------- 正文双栏 ----------
+\twocolumn
+\fontsize{10pt}{14pt}\selectfont
+
+随着网络速率持续提升，流分类作为网络服务的关键环节面临严峻的吞吐与时延挑战。现有基于单一流水线的方案在规则规模增长时，查找时延与资源开销显著上升。与已有工作相比，所提方法通过分离快速命中路径与慢速匹配路径，在保证规则更新连续性的同时降低关键路径时延。
+
+% ---------- 1 级标题 ----------
+\section{\heiti\fontsize{11.5pt}{14pt}\selectfont 系统设计}
+
+所提系统由流缓存、规则匹配与结果仲裁等模块组成。
+
+% ---------- 2 级标题 ----------
+\subsection{\heiti\zihao{5}\selectfont 快路径处理}
+
+流缓存命中请求在流水线内完成分类，无需访问慢速匹配引擎。
+
+% ---------- 3 级标题 ----------
+\subsubsection{\fontsize{10pt}{12pt}\selectfont 结果对齐}
+
+不同路径的处理结果在出口按请求序号对齐后输出。
+
+% ---------- 图 ----------
+% 示例：把图文件放 paper/zh/figures/final/ 后取消注释；图题无句末标点
+% \begin{figure}[t]
+% \centering
+% \includegraphics[width=\columnwidth]{fig1_architecture}
+% \caption{异构并行处理系统架构}
+% \label{fig:architecture}
+% \end{figure}
+
+% ---------- 三线表 ----------
+\begin{table}[t]
+\centering
+\caption{\heiti\fontsize{9pt}{11pt}\selectfont 不同方案的性能对比}
+\label{tab:compare}
+\fontsize{8pt}{10pt}\selectfont
+\begin{tabular}{lccc}
+\toprule
+方案 & 吞吐/(Gbps) & 平均时延/($\mu$s) & 规则更新连续性 \\
+\midrule
+基准A & 80.12 & 1.24 & 支持 \\
+基准B & 95.40 & 0.98 & 支持 \\
+所提方法 & \textbf{102.35} & \textbf{0.72} & 支持 \\
+\bottomrule
+\end{tabular}\\[2pt]
+\fontsize{8pt}{10pt}\selectfont 注：粗体表示最优值。
+\end{table}
+
+% ---------- 公式 ----------
+\begin{equation}
+  T = \frac{P \times L}{W} \label{eq:throughput}
+\end{equation}
+其中 $P$ 为包速率，$L$ 为平均包长，$W$ 为链路带宽。由式~(\ref{eq:throughput}) 可得吞吐上界。
+
+% ---------- 算法 ----------
+\textbf{本文算法步骤如下：}\
+输入：待分类报文流。\
+输出：分类结果。\
+Step1. 提取报文头部五元组。\
+Step2. 查询流缓存；\
+\hspace{2em} Step2.1. 命中则进入快路径输出；\
+\hspace{2em} Step2.2. 未命中则转入慢路径匹配。
+
+% ---------- 结语 ----------
+\section{\heiti\fontsize{11.5pt}{14pt}\selectfont 结\quad 语}
+
+所提方法通过快慢路径分离有效提升了高速流分类的吞吐并降低时延。未来工作将扩展至 IPv6 场景并优化规则更新机制。
+
+% ---------- 致谢 ----------
+\section*{\heiti\fontsize{11.5pt}{14pt}\selectfont 致\quad 谢}
+感谢实验平台提供方对本文工作的支持。
+
+% ---------- 参考文献 ----------
+\begin{thebibliography}{99}
+\fontsize{8pt}{10pt}\selectfont
+\bibitem{ref1} 张三, 李四. 面向高速网络的流分类技术综述[J]. 计算机辅助设计与图形学学报, 2025, 37(3): 100-115.
+\bibitem{ref2} Zhang S, Li S. High-speed flow classification with fast-slow path separation[C] //Proceedings of the International Conference on Computer Design. Los Alamitos: IEEE Computer Society Press, 2024: 117-124.
+\end{thebibliography}
+
+\end{document}
