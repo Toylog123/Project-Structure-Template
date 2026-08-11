@@ -1,0 +1,12 @@
+\documentclass[twocolumn,10pt]{ctexart}
+\usepackage[UTF8,fontset=windows]{ctex}
+\usepackage{fontspec}
+\setmainfont[Path=../../fonts/,Extension=.ttf,UprightFont=times,BoldFont=timesbd,ItalicFont=timesi,BoldItalicFont=timesbi]{Times New Roman}
+\setCJKmainfont[Path=../../fonts/,Extension=.ttf]{FZShuSong-Z01}
+\setCJKsansfont[Path=../../fonts/,Extension=.ttf]{SimHei}
+\newCJKfontfamily\fangfamily[Path=../../fonts/,Extension=.ttf]{FZFangSong-Z02}
+\let\fangsong\fangfamily
+\begin{document}
+\twocolumn[{\heiti\zihao{3} 测试标题}\par {\fangsong\zihao{4} 张三}]
+正文测试 Chinese Hello \textbf{bold} \textit{italic} 123
+\end{document}
