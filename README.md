@@ -65,6 +65,7 @@
 | `AGENTS.md` | 智能体行为契约：质疑 / 质量 / 自我批判 / 记录 / 并行 |
 | `CONTRIBUTING.md` | 协作规范：分支 / 提交 / PR / 多智能体分工 |
 | `SECURITY.md` | 安全与密钥管理（什么不进仓库） |
+| `CHANGELOG.md` | 变更日志（按版本记录重要变更） |
 | `.codex-handoff.json` | 交接元数据（read_order 阅读顺序） |
 | `.github/` | PR 模板 + CI 自动检查 |
 

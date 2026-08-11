@@ -14,7 +14,7 @@
 | `ARCHIVE_POLICY.md` | 归档与版本迭代规范（各对象何时/如何归档） |
 | `evidence/` | 不可变实验证据与结论交叉表（含 CROSSWALK_TEMPLATE 论文-证据交叉表模板） |
 | `design_specs/` | 项目立项评估（创新性评估）与专项设计规范 |
-| `review_history/` | 评审历史（含 REVIEW_ROUND_TEMPLATE 评审轮次模板） |
+| `review_history/` | 评审历史：论文审稿轮次（REVIEW_ROUND_TEMPLATE）+ 工程审查报告（代码/设计/实验，ENGINEERING_REVIEW_TEMPLATE） |
 | `archive/` | 退役版本与迁移历史 |
 | `migration/` | 迁移记录 |
 | `worktrees/` | 临时工作树注册表 |
