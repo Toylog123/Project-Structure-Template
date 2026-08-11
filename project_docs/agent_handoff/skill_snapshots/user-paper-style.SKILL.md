@@ -78,7 +78,8 @@ description: 项目文档写作规范——适用于论文、技术说明、报�
 2. `nature-ref-verifier`：核查引用真实性。
 3. `nature-response`：组织审稿回复结构与口径。
 4. **综合各 skill 意见** → 按「优先补实验 / 完善设计，而非降级描述」处理（见 `paper/zh/responses/RESPONSE_TEMPLATE.md`）。
-5. 修改后跑最终一致性检查（术语 / 证据 / 交叉表），再写回复。
+5. **每轮归档**：建 `paper/zh/review_rounds/r<N>_<日期>/`，归档该轮意见、回复、修改前论文（见该目录 README）。
+6. 修改后跑最终一致性检查（术语 / 证据 / 交叉表），再写回复。
 
 ## 九、绘图分工
 

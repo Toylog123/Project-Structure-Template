@@ -16,7 +16,8 @@ paper/
 |- GLOSSARY.md           # 中英专业术语对照表（翻译统一）
 |- zh/
 |  |- manuscript/        # 中文主稿件（.tex，单文件）
-|  |- responses/         # 审稿回复
+|  |- responses/         # 当前轮审稿回复
+|  |- review_rounds/     # 审稿轮次归档（意见+回复+修改前论文，每轮独立文件夹）
 |  |- figures/
 |  |  |- final/          # 定稿图（PNG）
 |  |  |- sources/        # 源文件（draw.io 等）
