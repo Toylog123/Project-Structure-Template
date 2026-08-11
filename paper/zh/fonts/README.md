@@ -1,22 +1,26 @@
 # 论文字体（随项目分发，避免换电脑重装）
 
-按《计算机辅助设计与图形学学报》投稿要求，本目录集中放置论文所需字体：
+按《计算机辅助设计与图形学学报》投稿要求，本目录集中放置论文所需字体。
+**编译时 compile.ps1 自动设置 `OSFONTDIR` 指向本目录**（LuaLaTeX + luaotfload），
+换电脑无需重装系统字体即可编译。
 
-| 字体 | 文件 | 状态 |
-|------|------|------|
-| 方正书宋_GBK（中文正文） | `FangZhengShuSong-GBK/FangZhengShuSong-GBK-1.ttf` | ✅ 已含 |
-| 黑体（标题/摘要/关键词标签） | `simhei.ttf`（拷贝自系统） | ✅ 已含 |
-| 方正仿宋_GBK（作者名） | `FangZhengFangSong-GBK/…` | ⚠️ 待解压 rar |
-| 仿宋（回退，临时） | `simfang.ttf`（拷贝自系统） | ✅ 已含 |
-| Times New Roman（英文/公式） | `times.ttf`（拷贝自系统） | ✅ 已含 |
+| 字体 | 文件 | 族名（LaTeX 中用） | 状态 |
+|------|------|------|------|
+| 方正书宋_GBK（中文正文） | `FangZhengShuSong-GBK/FangZhengShuSong-GBK-1.ttf` | `FZShuSong-Z01` | ✅ 已含 |
+| 黑体（标题 / 摘要标签） | `simhei.ttf` | `SimHei` | ✅ 已含 |
+| 方正仿宋_GBK（作者名） | `FangZhengFangSong-GBK/…/方正仿宋GBK（正文三号）.ttf` | `FZFangSong-Z02` | ✅ 已含 |
+| Times New Roman（英文 / 公式） | `times.ttf` `timesbd.ttf` `timesi.ttf` `timesbi.ttf` | `Times New Roman` | ✅ 已含 |
 
-## 待办：方正仿宋_GBK
+## 编译
 
-`D:\BaiduSyncdisk\99_归档\4方正仿宋GBK（正文三号）.rar` 需解压后放入
-`paper/zh/fonts/FangZhengFangSong-GBK/`（用 WinRAR / 360 / 7-Zip 解压），
-然后启用 `template.tex` 中的对应 `\newCJKfontfamily` 行（取消注释、切换字体名）。
+```powershell
+# 在 paper/zh/ 下执行
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/compile.bat                    # 编译 template
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/compile.ps1 -Name example_paper  # 编译示例
+```
 
-## 用法
+## 跨电脑移植
 
-LaTeX 通过相对路径 `../../fonts/` 加载字体（见 `template.tex` / `example_paper.tex`），
-不依赖系统安装，换电脑即可编译。
+- 本目录字体随项目分发，编译脚本自动设 `OSFONTDIR`——**新电脑无需安装字体**。
+- 只需安装 TeX Live / MiKTeX（含 LuaLaTeX 与字体库）即可编译。
+- 手动 lualatex 编译时先设字体路径：`export OSFONTDIR="<项目绝对路径>/paper/zh/fonts"`。
