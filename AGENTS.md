@@ -53,7 +53,7 @@
 
 **专职记录（多智能体时）**：分配一个智能体专门负责实时记录与文档同步，其他智能体专注执行。
 
-**文档更新清单**（按触发时机更新对应文档）：
+**文档更新清单**（按触发时机更新对应文档，完整见 `project_docs/RECORDS.md`）：
 
 | 触发时机 | 要更新的文档 |
 |----------|--------------|
@@ -61,14 +61,16 @@
 | 每轮结束 | `project_docs/WORK_PROGRESS.md`、`agent_handoff/status_logs/CURRENT_STATUS.md`、`agent_handoff/TASK_BOARD.md`、`agent_handoff/CURRENT_RUN_HANDOFF.md`、`agent_handoff/NEXT_AGENT_PROMPT.md` |
 | 发现问题 | `project_docs/OPEN_ISSUES.md` |
 | 解决问题 | `docs/EXPERIENCE.md`（经验库） |
+| 每次实验 | `project_docs/evidence/EXPERIMENT_REGISTRY.md`（登记，防重复做） |
+| 每次改论文 | `paper/zh/CHANGE_LOG.md` |
+| 每次改图 | `paper/zh/figures/CHANGE_LOG.md` |
+| 审稿轮次 | `paper/zh/review_rounds/r<N>/` |
 | 结构 / 路径变更 | `README.md`、`AGENTS.md`、`.codex-handoff.json`、`project_docs/README.md` |
 | 版本相关变更 | `project_docs/versioning.md`、`baselines/` |
 | 术语 / 译名变更 | `docs/GLOSSARY.md`、`paper/GLOSSARY.md` |
 | 数据 / 结论变更 | `project_docs/evidence/`（交叉表、索引） |
 | 每周日 | `reports/weekly/2026-W##.md`（周报） |
 | 自检 | `bash code/scripts/check_record.sh` |
-| 运行记录自检确认今日已记录 | `bash code/scripts/check_record.sh` |
-| 解决任何问题后登记经验 | `docs/EXPERIENCE.md`（现象→原因→解决→验证） |
 | 未解决的问题登记并持续保留，必须告知用户 | `project_docs/OPEN_ISSUES.md` |
 
 ## 6. 先查既往（复用优先）

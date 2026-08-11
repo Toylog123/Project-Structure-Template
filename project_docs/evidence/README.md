@@ -34,3 +34,7 @@ project_docs/evidence/
 ```
 
 详见 `project_docs/FILE_ORGANIZATION.md`。
+
+## 实验登记表
+
+- `EXPERIMENT_REGISTRY.md`：记录**所有做过 / 正在做的实验**，避免重复做。做新实验前先查。

@@ -78,3 +78,8 @@ experiments/
 ```
 
 详见 `project_docs/FILE_ORGANIZATION.md`。
+
+## 实验登记（避免重复做）
+
+- **做新实验前**：查 `project_docs/evidence/EXPERIMENT_REGISTRY.md` + `evidence/`，确认未做过（同版本 / 同配置 / 同输入）。
+- **每次实验完成后**：登记一行到登记表（含实验定义路径 + 证据包路径）。
