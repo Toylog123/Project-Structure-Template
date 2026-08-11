@@ -70,16 +70,28 @@ description: 项目文档写作规范——适用于论文、技术说明、报�
 - 修改任何文档时若术语 / 译名 / 缩写改变，**必须同步更新**术语表：`docs/GLOSSARY.md`（项目级），论文场景还须更新 `paper/GLOSSARY.md`（中英两版）。
 - 顺序：先改术语表，再改文档（或同一编辑内完成）；定稿时核对无旧译名残留。
 
-## 八、审稿工作流（多技能协同）
+## 八、审稿工作流（多智能体 + 多 skill）
 
-收到审稿意见时，**多种 skill 联合使用**，综合后修改：
+审稿迭代时**调用多智能体**，每个智能体用不同的审稿 skill 独立审稿，讨论综合后修改。
 
-1. `nature-reviewer` / `academic-paper-reviewer`：从审稿人视角独立评审，预判可能被指出的问题。
-2. `nature-ref-verifier`：核查引用真实性。
-3. `nature-response`：组织审稿回复结构与口径。
-4. **综合各 skill 意见** → 按「优先补实验 / 完善设计，而非降级描述」处理（见 `paper/zh/responses/RESPONSE_TEMPLATE.md`）。
-5. **每轮归档**：建 `paper/zh/review_rounds/r<N>_<日期>/`，归档该轮意见、回复、修改前论文（见该目录 README）。
-6. 修改后跑最终一致性检查（术语 / 证据 / 交叉表），再写回复。
+**项目审稿 skill**：
+
+| skill | 视角 |
+|-------|------|
+| `nature-reviewer` | 审稿人视角独立评审 |
+| `academic-paper-reviewer` | 7-agent 同行评审模拟 |
+| `nature-ref-verifier` | 引用真实性核查 |
+| `nature-response` | 审稿回复组织 |
+| `user-paper-style` | 项目格式 / 术语 / 证据规范 |
+
+**流程**：
+
+1. **多智能体并行审稿**：派发多个智能体，各用不同 skill 独立审稿（如 A→`nature-reviewer`，B→`academic-paper-reviewer`，C→`nature-ref-verifier`，D→`user-paper-style`）。
+2. **收集意见**：汇总各智能体发现（缺陷 / 澄清 / 建议），标注来源 skill。
+3. **讨论综合**：对照意见找共性与分歧，综合成一份审稿行动清单。
+4. **修改**：按「优先补实验 / 完善设计，而非降级描述」处理（见 `paper/zh/responses/RESPONSE_TEMPLATE.md`）。
+5. **每轮归档**：建 `paper/zh/review_rounds/r<N>_<日期>/`，归档该轮意见、回复、修改前论文。
+6. **一致性检查**：术语 / 证据 / 交叉表，再写回复（`nature-response`）。
 
 ## 九、绘图分工
 
