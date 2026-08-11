@@ -22,5 +22,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/compile.ps1 -Name ex
 ## 跨电脑移植
 
 - 本目录字体随项目分发，编译脚本自动设 `OSFONTDIR`——**新电脑无需安装字体**。
-- 只需安装 TeX Live / MiKTeX（含 LuaLaTeX 与字体库）即可编译。
+- 只需安装 **TeX Live（默认）**（含 LuaLaTeX 与字体库）即可编译。
 - 手动 lualatex 编译时先设字体路径：`export OSFONTDIR="<项目绝对路径>/paper/zh/fonts"`。
