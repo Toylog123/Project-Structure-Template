@@ -17,3 +17,20 @@
 2. 登记到 `INDEX.md`。
 3. 禁止把旧基线数据拼进新包。
 4. 中间/生成文件可 git-ignored，但原始输出与 README 必须可追溯。
+
+## 多级目录结构（每级一个维度）
+
+证据包按 **版本 → 类型 → 实验 → 日期批次** 多级组织：
+
+```text
+project_docs/evidence/
+└── v1/                    # 一级：版本
+    ├── rtl/
+    │   └── example_case/
+    │       └── 20260811_r01/   # 四级：日期_批次（自包含证据包）
+    └── power/
+        └── hit_rate/
+            └── 20260811_r01/
+```
+
+详见 `project_docs/FILE_ORGANIZATION.md`。

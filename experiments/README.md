@@ -63,3 +63,18 @@ experiments/
 - 每个证据包登记到 `project_docs/evidence/INDEX.md`。
 - 论文数字必须等于交叉表登记的**证据数字**（投稿前逐行复核）。
 - 找不到证据包的数字**不得写入论文**（见 `user-paper-style` 证据强制校验）。
+
+## 多级目录结构（每级一个维度）
+
+实验定义按 **版本 → 类型 → 实验** 多级组织：
+
+```text
+experiments/
+└── v1/                    # 一级：版本
+    ├── rtl/               # 二级：类型
+    │   └── example_case/  # 三级：实验（config / scripts / README）
+    └── power/
+        └── hit_rate/
+```
+
+详见 `project_docs/FILE_ORGANIZATION.md`。
