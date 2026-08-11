@@ -1,16 +1,16 @@
 # =============================================================================
-# 中文论文编译脚本（LuaLaTeX）
-# 用法：
+# Chinese paper compile script (LuaLaTeX)
+# Usage:
 #   powershell -NoProfile -ExecutionPolicy Bypass -File compile.ps1
-#   powershell ... -File compile.ps1 -Name <论文名>      # 指定稿件名，默认 template
-# 输出：paper/zh/build/<论文名>.pdf
-# 字体：自动设置 OSFONTDIR 指向 paper/zh/fonts/（项目内字体，换电脑无需重装）
+#   powershell ... -File compile.ps1 -Name <paper-name>
+# Output: paper/zh/build/<paper-name>.pdf
+# Fonts: OSFONTDIR points to paper/zh/fonts/ (project-local fonts)
 # =============================================================================
 param([string]$Name = "template")
 
 $ErrorActionPreference = "Stop"
-$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path   # paper/zh/scripts
-$paperRoot = Join-Path $scriptDir ".."                          # paper/zh
+$scriptDir = $PSScriptRoot                                   # paper/zh/scripts
+$paperRoot = (Resolve-Path (Join-Path $scriptDir "..")).Path # paper/zh (absolute path; avoids ".." breaking lualatex -output-directory)
 $manuscript = Join-Path $paperRoot "manuscript"
 $build = Join-Path $paperRoot "build"
 $fontsDir = Join-Path $paperRoot "fonts"
@@ -18,24 +18,27 @@ $fontsDir = Join-Path $paperRoot "fonts"
 New-Item -ItemType Directory -Force -Path $build | Out-Null
 $src = Join-Path $manuscript "$Name.tex"
 if (-not (Test-Path $src)) {
-    Write-Error "未找到稿件: $src"
+    Write-Error "Manuscript not found: $src"
     exit 1
 }
 
-# 项目内字体搜索路径（LuaLaTeX + luaotfload 读取 OSFONTDIR）
+# Project-local font search path (LuaLaTeX + luaotfload reads OSFONTDIR)
 $env:OSFONTDIR = $fontsDir
 
-Push-Location $manuscript
+# Run from the build directory and reference the manuscript with an ASCII
+# relative path. This avoids passing non-ASCII absolute paths to LuaTeX,
+# which Windows PowerShell 5.1 mangles when building native-command args.
+Push-Location $build
 try {
-    # 两遍编译以解析交叉引用
-    lualatex -interaction=nonstopmode -output-directory=$build "$Name.tex"
-    lualatex -interaction=nonstopmode -output-directory=$build "$Name.tex"
+    # Two passes to resolve cross-references
+    lualatex -interaction=nonstopmode "../manuscript/$Name.tex"
+    lualatex -interaction=nonstopmode "../manuscript/$Name.tex"
     if ($LASTEXITCODE -ne 0) {
-        Write-Error "编译失败，详见 $build\$Name.log"
+        Write-Error "Compile failed, see $build\$Name.log"
         exit $LASTEXITCODE
     }
 } finally {
     Pop-Location
 }
 
-Write-Host "编译完成: $build\$Name.pdf"
+Write-Host "Compiled: $build\$Name.pdf"
