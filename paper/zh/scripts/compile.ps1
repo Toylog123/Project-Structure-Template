@@ -41,4 +41,7 @@ try {
     Pop-Location
 }
 
-Write-Host "Compiled: $build\$Name.pdf"
+# 最新版 PDF 放到 paper/zh/ 根目录（方便查找最新稿）
+$latestPdf = Join-Path $paperRoot "${Name}.pdf"
+Copy-Item -Force (Join-Path $build "${Name}.pdf") $latestPdf
+Write-Host "Compiled (latest): ${latestPdf}"
