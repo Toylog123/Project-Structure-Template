@@ -1,7 +1,9 @@
 % =============================================================================
-% 示例论文 —— 按《计算机辅助设计与图形学学报》投稿格式填写
-% 本文件演示完整格式；正式投稿复制本文件并替换内容。
-% 编译：LuaLaTeX（paper/zh/scripts/compile.bat -Name example_paper）
+% 示例论文 —— 演示《计算机辅助设计与图形学学报》格式 + 说明每部分怎么写
+%
+% 说明：本示例**不写具体内容**，每部分用【怎么写】标注写作要点；
+%       具体内容按实际情况填写（写作规范见 skills/user-paper-style）。
+% 编译：LuaLaTeX（compile.ps1 -Name example_paper）
 % =============================================================================
 \documentclass[twocolumn,10pt]{ctexart}
 
@@ -55,118 +57,136 @@
 
 \pagestyle{plain}
 
-% ---------- 中文题录（通栏） ----------
+% ---------------------------------------------------------------------------
+% 中文题录（通栏）
+% ---------------------------------------------------------------------------
 \twocolumn[%
 \begin{center}
-  {\heiti\zihao{3} 面向高速流分类的异构并行处理系统设计与评估}\par
+  % 【标题：黑体三号，用设计亮点命名（如"XX 机制 / XX 架构"），非"XX 系统设计"】
+  {\heiti\zihao{3} 【标题（亮点命名）】}\par
   \vspace{6pt}
-  {\fangsong\zihao{4} 张三$^{1,2)}$，李四$^{1)*}$，王五$^{2)}$}\par
+  % 【作者：仿宋四号，通信作者姓名右上角加 *；同单位不加单位序号】
+  {\fangsong\zihao{4} 【作者1】$^{1,2)}$，【作者2】$^{1)*}$}\par
   \vspace{4pt}
-  {\songti\fontsize{8}{12}\selectfont（国防科技大学计算机学院，长沙 410073）}\par
+  % 【单位：书宋 8pt，单位全称到院系级】
+  {\songti\fontsize{8}{12}\selectfont（【单位全称】，【城市】 【邮编】）}\par
   \vspace{2pt}
-  {\songti\fontsize{8}{12}\selectfont E-mail：lisi@nudt.edu.cn（通信作者）}\par
+  {\songti\fontsize{8}{12}\selectfont E-mail：【邮箱】（通信作者）}\par
   \vspace{8pt}
 \end{center}
 \begin{flushleft}
+  % 【摘要四要素精简：① 目的 1~2 句；② 方法 1~2 句；③ 实验 + ④ 结果合计 2~3 句；
+  %  整体 150~250 字；不用第一人称，用"所提方法 / 算法 / 模型"】
   {\heiti\fontsize{8.5}{13}\selectfont 摘\quad 要：}{\songti\fontsize{8.5}{13}\selectfont
-  针对高速网络环境下流分类吞吐受限的问题，所提方法采用快慢路径分离的异构并行架构，将流缓存命中请求置于流水线快路径处理，未命中请求转入慢路径匹配。实验基于 100 Gbps 硬件平台完成，与现有方案相比，所提方法在保持规则更新连续性的前提下，将分类吞吐提升至 102.35 Gbps，平均时延降低约 30\%。}\par
+  【摘要：目的 → 方法 → 实验（平台/数据/对比）→ 结果（定量指标）】}\par
   \vspace{4pt}
+  % 【关键词 4~6 个，按重要性排序，专指性规范术语】
   {\heiti\fontsize{8.5}{13}\selectfont 关键词：}{\songti\fontsize{8.5}{13}\selectfont
-  流分类；异构并行；快慢路径分离；FPGA；时延优化}\par
+  【关键词1】；【关键词2】；【关键词3】；【关键词4】；【关键词5】}\par
   \vspace{2pt}
-  {\songti\fontsize{8.5}{13}\selectfont 中图法分类号：TP391.41\qquad DOI：10.3724/SP.J.1089.2026-00001}\par
+  {\songti\fontsize{8.5}{13}\selectfont 中图法分类号：【分类号】\qquad DOI：10.3724/SP.J.1089.【稿件编号】}\par
   \vspace{6pt}
 \end{flushleft}
 
-% 英文题录
+% 英文题录【英文 Title（Times 13.5pt 加粗，实词首字母大写）/ 作者 / 斜体单位 /
+% Abstract / Key words 与中文一一对应，内容同中文】
 \begin{center}
-  {\bfseries\fontsize{13.5}{18}\selectfont Design and Evaluation of a Heterogeneous Parallel Processing System for High-Speed Flow Classification}\par
+  {\bfseries\fontsize{13.5}{18}\selectfont 【English Title】}\par
   \vspace{5pt}
-  {\normalsize Zhang San$^{1,2)}$，Li Si$^{1)*}$，and Wang Wu$^{2)}$}\par
+  {\normalsize 【Author 1】$^{1,2)}$，【Author 2】$^{1)*}$}\par
   \vspace{3pt}
-  {\small\itshape (College of Computer Science and Technology, National University of Defense Technology, Changsha 410073, China)}\par
+  {\small\itshape (【English Affiliation】，【City】 【Postcode】)}\par
   \vspace{6pt}
 \end{center}
 \begin{flushleft}
-  {\bfseries Abstract:} {\small To address the throughput bottleneck of flow classification in high-speed networks, the proposed method adopts a heterogeneous parallel architecture with separated fast and slow paths. Experiments on a 100 Gbps hardware platform show that the proposed method improves classification throughput to 102.35 Gbps while reducing average latency by about 30\%.}\par
+  {\bfseries Abstract:} {\small 【English abstract（与中文对应）。】}\par
   \vspace{3pt}
-  {\bfseries Key words:} {\small flow classification; heterogeneous parallel; fast-slow path separation; FPGA; latency optimization}\par
+  {\bfseries Key words:} {\small 【kw1】; 【kw2】; 【kw3】; 【kw4】; 【kw5】}\par
 \end{flushleft}
 ]%
 
-% ---------- 引言（无章节号与标题） ----------
-随着网络速率持续提升，流分类作为网络服务的关键环节面临严峻的吞吐与时延挑战。现有基于单一流水线的方案在规则规模增长时，查找时延与资源开销显著上升。与已有工作相比，所提方法通过分离快速命中路径与慢速匹配路径，在保证规则更新连续性的同时降低关键路径时延\cite{ref1}。
+% ---------------------------------------------------------------------------
+% 正文（双栏）
+% ---------------------------------------------------------------------------
 
-% ---------- 1 级标题（用设计亮点命名，非"系统设计"说明书式） ----------
-\section{快慢路径分离的异构并行架构}
+% 引言（不加章节号与标题；不插图表格公式；不用结论性表述；与摘要结论不重复）
+% 【漏斗聚焦：大领域背景 → 收窄到子领域 → 具体问题 → 现有工作不足（配引用）→ 本文方法；
+%  面向大同行，背景铺垫充分、由浅入深，必要术语首次解释】
+【引言：大领域 → 子领域 → 具体问题 → 本文方法。】\cite{ref1}
 
-所提架构以快慢路径分离为核心机制：流缓存命中请求在流水线快路径完成分类，未命中请求转入慢路径匹配，从而在保持规则更新连续性的同时降低关键路径时延。
+% 相关工作【讲已有工作（客观描述 + 引用）→ 指出未解决问题 → 讲完再引出本文设计；
+%            不穿插"本文…"；只对关键相关明确对比，不必每个都对比】
+\section{\heiti\fontsize{11.5}{15}\selectfont 相关工作}
+【按主题介绍已有方法 → 指出未解决问题 → 引出本文设计。】
 
-% ---------- 2 级标题 ----------
-\subsection{快路径处理}
+% 1 级标题【用设计亮点命名（如"XX 机制 / XX 架构"），非"系统设计"；正文突出设计决策与为什么】
+\section{\heiti\fontsize{11.5}{15}\selectfont 【机制亮点标题】}
+【正文：核心机制、设计决策、为什么这么设计（创新点 / 权衡 / 边界）。】
 
-流缓存命中请求在流水线内完成分类，无需访问慢速匹配引擎。
+% 2 级标题
+\subsection{\heiti\fontsize{10.5}{14}\selectfont 【子机制 / 环节】}
+【正文。】
 
-% ---------- 3 级标题 ----------
-\subsubsection{结果对齐}
+% 3 级标题
+\subsubsection{\songti\fontsize{10}{13}\selectfont 【细节】}
+【正文。】
 
-不同路径的处理结果在出口按请求序号对齐后输出。
-
-% ---------- 图（示例） ----------
-% 图题书宋9pt；把图文件放 paper/zh/figures/final/ 后取消注释
+% 图（示例）——图题书宋9pt；把图文件放 paper/zh/figures/final/ 后取消注释
 % \begin{figure}[t]
 % \centering
-% \includegraphics[width=\columnwidth]{fig1_architecture}
-% \caption{异构并行处理系统架构}
-% \label{fig:architecture}
+% \includegraphics[width=\columnwidth]{figN_名称}
+% \caption{【图题（无句末标点）】}
+% \label{fig:xxx}
 % \end{figure}
 
-% ---------- 三线表（示例） ----------
+% 三线表（示例）——表题黑体9pt、表注8pt；数据来自证据包（见 DATA_SOURCE_TEMPLATE）
 \begin{table}[t]
 \centering
-\caption{不同方案的性能对比}
-\label{tab:compare}
+\caption{【表题（黑体 9pt）】}
+\label{tab:xxx}
 \fontsize{8}{10}\selectfont
-\begin{tabular}{lccc}
+\begin{tabular}{lcc}
 \toprule
-方案 & 吞吐/(Gbps) & 平均时延/($\mu$s) & 规则更新连续性 \\
+【栏头】 & 【横向栏目】 & 【横向栏目】 \\
 \midrule
-基准A & 80.12 & 1.24 & 支持 \\
-基准B & 95.40 & 0.98 & 支持 \\
-所提方法 & \textbf{102.35} & \textbf{0.72} & 支持 \\
+【纵栏目】 & 数值 & 数值 \\
+【纵栏目】 & 数值 & 数值 \\
 \bottomrule
 \end{tabular}\\[2pt]
-\fontsize{8}{10}\selectfont 注：粗体表示最优值。
+\fontsize{8}{10}\selectfont 注：【表注】。
 \end{table}
 
-% ---------- 公式 ----------
+% 公式（被引用的加序号，先给出后引用；数据/符号有依据）
 \begin{equation}
-  T = \frac{P \times L}{W} \label{eq:throughput}
+  【表达式】 \label{eq:xxx}
 \end{equation}
-其中 $P$ 为包速率，$L$ 为平均包长，$W$ 为链路带宽。由式~(\ref{eq:throughput}) 可得吞吐上界。
+如式~(\ref{eq:xxx}) 所示。
 
-% ---------- 算法 ----------
+% 算法（输入/输出书宋10pt；Step 书宋9pt；下级右移2格）
 \textbf{本文算法步骤如下：}\\
-输入：待分类报文流。\\
-输出：分类结果。\\
-Step1. 提取报文头部五元组。\\
-Step2. 查询流缓存；\\
-\hspace{2em} Step2.1. 命中则进入快路径输出；\\
-\hspace{2em} Step2.2. 未命中则转入慢路径匹配。
+输入：【输入】。\\
+输出：【输出】。\\
+Step1. 【步骤】。\\
+Step2. 【步骤】；\\
+\hspace{2em} Step2.1. 【子步骤】；\\
+\hspace{2em} Step2.2. 【子步骤】。
 
-% ---------- 结语 ----------
-\section{结\quad 语}
-所提方法设计并实现了快慢路径分离的异构并行架构，实现了高速流分类的吞吐提升与时延降低，验证了其在 100 Gbps 场景下的有效性。未来工作将扩展至 IPv6 场景。
+% 结语【结果 + 结论（简洁：实现了什么设计/功能、达到什么效果）+ 一句简短未来工作；
+%        不写具体展开的下一步计划清单】
+\section{\heiti\fontsize{11.5}{15}\selectfont 结\quad 语}
+【结论：所提方法实现了…，达到…效果。未来工作将…。】
 
-% ---------- 致谢 ----------
-\section*{致\quad 谢}
-感谢实验平台提供方对本文工作的支持。
+% 致谢（非必需）
+\section*{\heiti\fontsize{11.5}{15}\selectfont 致\quad 谢}
+【感谢…。】
 
-% ---------- 参考文献 ----------
+% ---------------------------------------------------------------------------
+% 参考文献（标题黑体 11.5pt；条目 8pt，GB/T 7714）
+% ---------------------------------------------------------------------------
 \begin{thebibliography}{99}
 \fontsize{8}{10}\selectfont
-\bibitem{ref1} 张三, 李四. 面向高速网络的流分类技术综述[J]. 计算机辅助设计与图形学学报, 2025, 37(3): 100-115.
-\bibitem{ref2} Zhang S, Li S. High-speed flow classification with fast-slow path separation[C] //Proceedings of the International Conference on Computer Design. Los Alamitos: IEEE Computer Society Press, 2024: 117-124.
+\bibitem{ref1} 【作者】. 【题名】[J]. 【期刊名】, 【年】, 【卷】(【期】): 【页码】.
+\bibitem{ref2} 【作者】. 【题名】[C] //【会议论文集名称】. 【出版地】: 【出版者】, 【年】: 【页码】.
 \end{thebibliography}
 
 \end{document}
