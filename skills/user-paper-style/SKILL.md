@@ -121,8 +121,8 @@ description: 项目文档写作规范——适用于论文、技术说明、报�
 | 数据图（定量折线图、统计图、曲线） | AI 用 `nature-figure` 技能 | 脚本生成，数据来自证据包，**可复现** |
 | 机制图（系统结构图、流程图、硬件结构图） | **详细设计提示词（结构示意）→ 草图 → 用户手工画最终版** | AI 给出含结构示意的提示词 + 草图，用户按提示词绘制 |
 
-- 数据图：必须可复现（脚本 + 数据源），按 `nature-figure` 规范；**每张图填数据来源记录**（`figures/plot_specs/DATA_SOURCE_TEMPLATE.md`，含基线/配置/口径），防弄混版本与配置。
-- 机制图：AI 先写**详细设计提示词**（见 `paper/zh/figures/drawing_prompts/MECHANISM_FIGURE_PROMPT_TEMPLATE.md`，含模块 / 连线 / 数据流 / 层次结构示意），并出草图放 `candidates/`；论文中放草图占位，**最终由用户按提示词手工绘制**，源文件存 `sources/`、定稿存 `final/`。
+- 数据图 → `paper/zh/figures/data/`：必须可复现（脚本 + 数据源），按 `nature-figure` 规范；**每张图填数据来源记录**（`data/plot_specs/DATA_SOURCE_TEMPLATE.md`，含基线/配置/口径），定稿存 `data/final/`。
+- 机制图 → `paper/zh/figures/manual/`：AI 先写**详细设计提示词**（见 `manual/drawing_prompts/MECHANISM_FIGURE_PROMPT_TEMPLATE.md`，含模块 / 连线 / 数据流 / 层次结构示意），并出草图放 `manual/candidates/`；论文中放草图占位，**最终由用户按提示词手工绘制**，源文件存 `manual/sources/`、定稿存 `manual/final/`。
 
 ## 十、写作红线：版本代号 / 过程性语言 / 保护性语言
 

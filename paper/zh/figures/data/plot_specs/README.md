@@ -14,7 +14,7 @@
 python paper/zh/figures/scripts/generate_plots.py
 ```
 
-输出到 `paper/zh/figures/final/`。
+输出到 `paper/zh/figures/data/final/`。
 
 约定：
 
