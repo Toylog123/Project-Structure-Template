@@ -1,7 +1,7 @@
 # 机制图设计提示词：<图名>（fig<N>_<名称>）
 
 > 给绘制者的**详细设计提示词**。要求：**结构示意，不只是简单流程**——标注模块、连线、数据流、层次与关键接口。
-> 论文中当前放**草图 / 占位**（`figures/manual/candidates/`），最终由绘制者按本提示词手工绘制。
+> 论文中当前放**草图 / 占位**（`figures/manual/figures/`），最终由绘制者按本提示词手工绘制。
 
 ## 一、图目的
 
@@ -41,6 +41,6 @@
 
 ## 四、草图与交付
 
-- 论文当前放**草图 / 占位**于 `figures/manual/candidates/`。
-- 绘制者完成后：源文件存 `figures/manual/sources/`（draw.io 等），定稿 PNG 导出 `figures/manual/final/`。
+- 论文当前放**草图 / 占位**于 `figures/manual/figures/`。
+- 绘制者完成后：源文件存 `figures/manual/figures/`（draw.io 等），定稿 PNG 导出 `figures/manual/figures/`。
 - 提示词文件：`manual/drawing_prompts/<figN>_<名称>_prompt.md`。

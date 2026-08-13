@@ -10,6 +10,6 @@
 
 ## 约定
 
-- 提示词按当前中文稿中的图片文件名编写，定稿 PNG 导出到 `paper/zh/figures/manual/final/`。
-- 源文件（draw.io 等）放在 `paper/zh/figures/manual/sources/`。
+- 提示词按当前中文稿中的图片文件名编写，定稿 PNG 导出到 `paper/zh/figures/manual/figures/`。
+- 源文件（draw.io 等）放在 `paper/zh/figures/manual/figures/`。
 - 定量折线图由脚本生成（`figures/scripts/`），**不使用**本目录的提示词。
