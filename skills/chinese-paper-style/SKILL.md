@@ -1,6 +1,6 @@
 ---
-name: user-paper-style
-description: 项目文档写作规范——适用于论文、技术说明、报告、设计文档等，取决于用户要写什么。证据强制校验、术语统一、引用核查、格式自检。
+name: chinese-paper-style
+description: 中文论文写作风格规范——以核心贡献为中心、自然中文表达、证据和结构控制篇幅；适用于学术论文（zh 主 / en 转换）及项目文档。证据强制校验、术语统一、引用核查、格式自检。
 ---
 
 # 项目文档写作规范（Docs Style）
@@ -132,14 +132,14 @@ description: 项目文档写作规范——适用于论文、技术说明、报�
 | `academic-paper-reviewer` | 7-agent 同行评审模拟 |
 | `nature-ref-verifier` | 引用真实性核查 |
 | `nature-response` | 审稿回复组织 |
-| `user-paper-style` | **项目写作风格（最高优先级）**：格式 / 术语 / 摘要 / 结论 / 红线 |
+| `chinese-paper-style` | **项目写作风格（最高优先级）**：格式 / 术语 / 摘要 / 结论 / 红线 |
 
-**优先级**：`user-paper-style`（本项目写作风格）**最高**——其他审稿 skill 的发现都要对照它过滤；与本项目写作风格冲突的修改，优先按 `user-paper-style` 执行。
+**优先级**：`chinese-paper-style`（本项目写作风格）**最高**——其他审稿 skill 的发现都要对照它过滤；与本项目写作风格冲突的修改，优先按 `chinese-paper-style` 执行。
 
 **流程**：
 
-1. **多智能体并行审稿**：派发多个智能体，各用不同 skill 独立审稿（如 A→`nature-reviewer`，B→`academic-paper-reviewer`，C→`nature-ref-verifier`，D→`user-paper-style`）。
-2. **收集意见**：汇总各智能体发现（缺陷 / 澄清 / 建议），标注来源 skill；**先按 `user-paper-style` 过滤**（写作风格相关意见优先）。
+1. **多智能体并行审稿**：派发多个智能体，各用不同 skill 独立审稿（如 A→`nature-reviewer`，B→`academic-paper-reviewer`，C→`nature-ref-verifier`，D→`chinese-paper-style`）。
+2. **收集意见**：汇总各智能体发现（缺陷 / 澄清 / 建议），标注来源 skill；**先按 `chinese-paper-style` 过滤**（写作风格相关意见优先）。
 3. **讨论综合**：对照意见找共性与分歧，综合成一份审稿行动清单。
 4. **修改**：按「优先补实验 / 完善设计，而非降级描述」处理（见 `paper/zh/responses/RESPONSE_TEMPLATE.md`）。
 5. **每轮归档**：建 `paper/zh/review_rounds/r<N>_<日期>/`，归档该轮意见、回复、修改前论文。

@@ -91,7 +91,7 @@
 | 目录 | 角色 |
 |------|------|
 | `versions/` | 冻结版本集合；每版本为完整体（code/project/experiments/docs），零交叉引用 |
-| `skills/` | 项目级技能（ARS 学术技能 + `user-paper-style`） |
+| `skills/` | 项目级技能（ARS 学术技能 + `chinese-paper-style`） |
 | `scratch/` | 临时脚本 / 探针（git-ignored） |
 
 ## 工作规则

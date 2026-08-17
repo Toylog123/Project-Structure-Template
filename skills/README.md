@@ -41,15 +41,15 @@
 
 | 技能 | 描述 |
 |------|------|
-| `user-paper-style/` | **本项目**文档写作规范（论文 / 技术说明 / 报告 / 设计文档）：证据校验 / 术语统一 / 引用核查 / 格式自检。 |
+| `chinese-paper-style/` | **本项目**文档写作规范（论文 / 技术说明 / 报告 / 设计文档）：证据校验 / 术语统一 / 引用核查 / 格式自检。 |
 
 ## 发现路径
 
 1. 先读本文件与对应技能说明（`README.md` 或 `SKILL.md`）。
-2. 写论文时：`nature-writing` / `academic-paper` + `user-paper-style`；审稿时：`nature-response` / `academic-paper-reviewer`。
+2. 写论文时：`nature-writing` / `academic-paper` + `chinese-paper-style`；审稿时：`nature-response` / `academic-paper-reviewer`。
 3. 若 `skills/` 不可用，回退 `project_docs/agent_handoff/skill_snapshots/`。
 
 ## 规则
 
-- 技能变更时同步更新 `project_docs/agent_handoff/skill_snapshots/` 快照（项目本地 `user-paper-style` 必同步）。
-- 外部技能（nature-*、ARS）保持与上游同步；项目本地规则写在 `user-paper-style`。
+- 技能变更时同步更新 `project_docs/agent_handoff/skill_snapshots/` 快照（项目本地 `chinese-paper-style` 必同步）。
+- 外部技能（nature-*、ARS）保持与上游同步；项目本地规则写在 `chinese-paper-style`。
